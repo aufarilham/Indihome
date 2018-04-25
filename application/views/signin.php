@@ -51,7 +51,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 col-md-push-8">
+				<div class="col-md-8 col-xs-12">
+    				<div style="height:200px; background: black">
+    					
+    				</div>
+				</div>
+				<div class="col-md-4">
 					
 
 					<!-- Start Sign In Form -->

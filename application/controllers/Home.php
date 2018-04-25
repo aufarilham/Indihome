@@ -7,4 +7,14 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('signin');
 	}
+
+	public function basic_table()
+	{
+		$this->load->view('basic-table');
+	}
+
+	public function map_google()
+	{
+		$this->load->view('map-google');
+	}
 }
