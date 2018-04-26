@@ -60,15 +60,15 @@
 					
 
 					<!-- Start Sign In Form -->
-					<form action="#" class="fh5co-form animate-box" data-animate-effect="fadeInRight">
+					<form action=<?php echo base_url('login/aksi_login'); ?> class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
 						<h2>Sign In</h2>
 						<div class="form-group">
 							<label for="username" class="sr-only">Username</label>
-							<input type="text" class="form-control" id="username" placeholder="Username" autocomplete="off">
+							<input type="text" name="username" class="form-control" id="username" placeholder="Username" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="password" class="sr-only">Password</label>
-							<input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
+							<input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="remember"><input type="checkbox" id="remember"> Remember Me</label>
