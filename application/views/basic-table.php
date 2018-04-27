@@ -40,6 +40,7 @@
     <!-- Wrapper -->
     <!-- ============================================================== -->
     <div id="wrapper">
+        
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -63,6 +64,9 @@
                     </li>
                     <li>
                         <a class="profile-pic" href="#"> <img src="<?php echo base_url()?>assets/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('Home'); ?>">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -126,6 +130,10 @@
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Basic Table</li>
                         </ol>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h1>Login berhasil !</h1>
+                        <h2>Hai, <?php echo $this->session->userdata("nama"); ?></h2>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

@@ -11,6 +11,6 @@ class Users extends CI_Controller{
 	}
  
 	function index(){
-		$this->load->view('v_admin');
+		$this->load->view('basic-table');
 	}
 }
