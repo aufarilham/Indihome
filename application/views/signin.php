@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 	<html class="no-js">
 	<head>
-		<link href="<?php echo base_url()?>assets/images/Indihome.png" rel="shortcut icon">
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>[Sign-in] - Integrasi Presisi Indiehome</title>

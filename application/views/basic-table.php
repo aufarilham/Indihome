@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/Indihome.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/favicon.png">
     <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url()?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -141,68 +141,127 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Basic Table</h3>
-                            <p class="text-muted">Add class <code>.table</code></p>
+                            <h3 class="box-title">OA</h3>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                            <th>Role</th>
+                                            <th>ospTerm</th>
+                                            <th>feederCable</th>
+                                            <th>primaryFC</th>
+                                            <th>lossCore</th>
+                                            <th>odcPortIn</th>
+                                            <th>xConnectCable</th>
+                                            <th>cabangID</th>
+											<th>kodeRak</th>
+											
                                         </tr>
                                     </thead>
                                     <tbody>
+									 <?php foreach ($oa as $data){?>
+									 
                                         <tr>
-                                            <td>1</td>
-                                            <td>Deshmukh</td>
-                                            <td>Prohaska</td>
-                                            <td>@Genelia</td>
-                                            <td>admin</td>
+                                            <td><?php echo $data->ospTerm;?></td>
+                                            <td><?php echo $data->feederCable;?></td>
+                                            <td><?php echo $data->primaryFC;?></td>
+                                            <td><?php echo $data->lossCore;?></td>
+                                            <td><?php echo $data->odcPortIn;?></td>
+											<td><?php echo $data->xConnectCable;?></td>
+											<td><?php echo $data->cabangID;?></td>
+											<td><?php echo $data->kodeRak;?></td>
+											
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Deshmukh</td>
-                                            <td>Gaylord</td>
-                                            <td>@Ritesh</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sanghani</td>
-                                            <td>Gusikowski</td>
-                                            <td>@Govinda</td>
-                                            <td>developer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Roshan</td>
-                                            <td>Rogahn</td>
-                                            <td>@Hritik</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Joshi</td>
-                                            <td>Hickle</td>
-                                            <td>@Maruti</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nigam</td>
-                                            <td>Eichmann</td>
-                                            <td>@Sonu</td>
-                                            <td>supporter</td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+                <!-- /.row -->
+				<!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ODC</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ospTerm</th>
+                                            <th>odcOut</th>
+                                            <th>odcPortOut</th>
+                                            <th>DistCable</th>
+                                            <th>odcKordX</th>
+                                            <th>odcKordY</th>
+                                            
+											
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($odc as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->ospTerm;?></td>
+                                            <td><?php echo $data->odcOut;?></td>
+                                            <td><?php echo $data->odcPortOut;?></td>
+                                            <td><?php echo $data->DistCable;?></td>
+                                            <td><?php echo $data->odcKordX;?></td>
+											<td><?php echo $data->odcKordY;?></td>
+											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+				<!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ODP</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>odcOut</th>
+                                            <th>odpOut</th>
+                                            <th>odpIn</th>
+                                            <th>kondisi</th>
+                                            <th>odpKordX</th>
+                                            <th>odpKordY</th>
+                                            
+											
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($odp as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->odcOut;?></td>
+                                            <td><?php echo $data->odpOut;?></td>
+                                            <td><?php echo $data->odpIn;?></td>
+                                            <td><?php echo $data->kondisi;?></td>
+                                            <td><?php echo $data->odpKordX;?></td>
+											<td><?php echo $data->odpKordY;?></td>
+											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
