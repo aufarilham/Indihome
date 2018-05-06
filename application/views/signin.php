@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 	<html class="no-js">
 	<head>
-		<link href="<?php echo base_url()?>assets/images/Indihome.png" rel="shortcut icon">
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>[Sign-in] - Integrasi Presisi Indiehome</title>
@@ -10,6 +8,7 @@
 	<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/Indihome_Icon.png">
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -54,8 +53,9 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-xs-12">
-    				<div style="height:200px; background: black">
-    					
+    				<div> 
+    					<!--<style="height:200px; background: black"> -->
+    					<img src="<?php echo base_url()?>assets/images/Indihome_Fiber.png">
     				</div>
 				</div>
 				<div class="col-md-4">
