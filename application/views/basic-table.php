@@ -137,6 +137,48 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Cabang</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NAMA</th>
+                                            <th>Alamat</th>
+                                            <th>tipe</th>
+                                            <th>Manager</th>
+                                            
+											
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($cabang as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->CabangID;?></td>
+                                            <td><?php echo $data->namaCabang;?></td>
+                                            <td><?php echo $data->jalan;?>, <?php echo $data->kota;?>, <?php echo $data->kodePos;?></td>
+                                            <td><?php echo $data->tipe;?></td>
+                                            <td><?php echo $data->mgrID;?></td>
+                                            
+											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+				
+                
+                
                 <!-- /row -->
                 <div class="row">
                     <div class="col-sm-12">
@@ -169,6 +211,85 @@
 											<td><?php echo $data->xConnectCable;?></td>
 											<td><?php echo $data->cabangID;?></td>
 											<td><?php echo $data->kodeRak;?></td>
+											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+                
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">EA</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>xConnectCable</th>
+                                            <th>eqpIP</th>
+                                            <th>eqpPort</th>
+                                            <th>eqpTerm</th>
+                                            <th>noIndi</th>
+                                            
+											
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($ea as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->xConnectCable;?></td>
+                                            <td><?php echo $data->eqpIP;?></td>
+                                            <td><?php echo $data->eqpPort;?></td>
+                                            <td><?php echo $data->eqpTerm;?></td>
+											<td><?php echo $data->noIndi;?></td>
+											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ET</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>xConnectCable</th>
+                                            <th>eqpIP</th>
+                                            <th>eqpPort</th>
+                                            <th>eqpTerm</th>
+                                            <th>noMetro</th>
+                                            
+											
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($et as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->xConnectCable;?></td>
+                                            <td><?php echo $data->eqpIP;?></td>
+                                            <td><?php echo $data->eqpPort;?></td>
+                                            <td><?php echo $data->eqpTerm;?></td>
+											<td><?php echo $data->noMetro;?></td>
 											
                                         </tr>
                                         <?php } ?>
@@ -222,6 +343,36 @@
 
 
                 <!-- /.row -->
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ODCIn</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ospTerm</th>
+                                            <th>odcIn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($odcIn as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->ospTerm;?></td>
+                                            <td><?php echo $data->odcIn;?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
 				<!-- /row -->
                 <div class="row">
                     <div class="col-sm-12">
@@ -233,7 +384,6 @@
                                         <tr>
                                             <th>odcOut</th>
                                             <th>odpOut</th>
-                                            <th>odpIn</th>
                                             <th>kondisi</th>
                                             <th>odpKordX</th>
                                             <th>odpKordY</th>
@@ -247,11 +397,40 @@
                                         <tr>
                                             <td><?php echo $data->odcOut;?></td>
                                             <td><?php echo $data->odpOut;?></td>
-                                            <td><?php echo $data->odpIn;?></td>
                                             <td><?php echo $data->kondisi;?></td>
                                             <td><?php echo $data->odpKordX;?></td>
 											<td><?php echo $data->odpKordY;?></td>
 											
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+                 <!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">ODPIn</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>odcOut</th>
+                                            <th>odpIn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									 <?php foreach ($odpIn as $data){?>
+									 
+                                        <tr>
+                                            <td><?php echo $data->odcOut;?></td>
+                                            <td><?php echo $data->odpIn;?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

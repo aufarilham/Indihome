@@ -13,9 +13,14 @@ class Users extends CI_Controller{
  
 	function index(){
 		$this->load->model("kabel");
+        $data["cabang"] =  $this->kabel->getCabang();	
 		$data["oa"] =  $this->kabel->getOA();
+        $data["ea"] =  $this->kabel->getEA();
+        $data["et"] =  $this->kabel->getET();
 		$data["odc"] =  $this->kabel->getODC();
+        $data["odcIn"] =  $this->kabel->getODCIN();
 		$data["odp"] =  $this->kabel->getODP();
-		$this->load->view('basic-table', $data);
+		$data["odpIn"] =  $this->kabel->getODPIN();
+        $this->load->view('basic-table', $data);
 	}
 }
