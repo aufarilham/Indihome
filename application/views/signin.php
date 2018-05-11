@@ -8,7 +8,7 @@
 	<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
-	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/Indihome_Icon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/Indihome_Icon.png"/>
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -28,7 +28,7 @@
 
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/animate.css">
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/form.css">
 
 
 	<!-- Modernizr JS -->
@@ -39,18 +39,18 @@
 	<![endif]-->
 
 	</head>
-	<body class="style-3" style="background: #ffffff url(assets/images/hitam.jpg) repeat;">
+	<body class="style-3 " style="background: #ffffff url(assets/images/hitam.jpg) repeat;">
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-xs-12">
+					<!-- Start Sign In Form -->
+				<div class="col-md-8 col-xs-12" style="margin-top: 100px">
 
     					<!--<style="height:200px; background: black"> -->
     					<img style="width: 100%; max-width: 550px; height: auto;" src="<?php echo base_url()?>assets/images/Indihome_Fiber2.png">
 
 				</div>
-				<div class="col-md-4 col-xs-12">
-					<!-- Start Sign In Form -->
+				<div class="col-md-4 col-xs-12" style="margin-top: 100px">
 					<form action=<?php echo base_url('login/aksi_login'); ?> class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
 						<h2>Sign In</h2>
 						<div class="form-group">
@@ -65,7 +65,7 @@
 							<label for="remember"><input type="checkbox" id="remember"> Remember Me</label>
 						</div>
 						<div class="form-group">
-							<p>Not registered? <a href="sign-up3.html">Sign Up</a> | <a href="forgot3.html">Forgot Password?</a></p>
+							<p>Not registered? <a href="forgot3.html"> Forgot Password?</a></p>
 						</div>
 						<div class="form-group">
 							<input type="submit" value="Sign In" class="btn btn-primary">
