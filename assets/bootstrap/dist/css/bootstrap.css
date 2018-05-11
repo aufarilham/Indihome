@@ -1950,6 +1950,7 @@ pre code {
   }
   .col-md-8 {
     width: 66.66666667%;
+    margin-top: 50%;
   }
   .col-md-7 {
     width: 58.33333333%;
@@ -1962,6 +1963,7 @@ pre code {
   }
   .col-md-4 {
     width: 33.33333333%;
+    max-height: 10px;
   }
   .col-md-3 {
     width: 25%;

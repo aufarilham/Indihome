@@ -25,7 +25,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-	
+
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/animate.css">
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css">
@@ -39,28 +39,17 @@
 	<![endif]-->
 
 	</head>
-	<body class="style-3">
+	<body class="style-3" style="background: #ffffff url(assets/images/hitam.jpg) repeat;">
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="menu">
-						<li><a href="index.html">Style 1</a></li>
-						<li><a href="index2.html">Style 2</a></li>
-						<li class="active"><a href="index3.html">Style 3</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-md-8 col-xs-12">
-    				<div> 
-    					<!--<style="height:200px; background: black"> -->
-    					<img src="<?php echo base_url()?>assets/images/Indihome_Fiber.png">
-    				</div>
-				</div>
-				<div class="col-md-4">
-					
 
+    					<!--<style="height:200px; background: black"> -->
+    					<img style="width: 100%; max-width: 550px; height: auto;" src="<?php echo base_url()?>assets/images/Indihome_Fiber2.png">
+
+				</div>
+				<div class="col-md-4 col-xs-12">
 					<!-- Start Sign In Form -->
 					<form action=<?php echo base_url('login/aksi_login'); ?> class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
 						<h2>Sign In</h2>
@@ -87,11 +76,8 @@
 
 				</div>
 			</div>
-			<div class="row" style="padding-top: 60px; clear: both;">
-				<div class="col-md-12 text-center"><p><small>&copy; All Rights Reserved. Designed by <a href="https://freehtml5.co">FreeHTML5.co</a></small></p></div>
-			</div>
 		</div>
-	
+
 	<!-- jQuery -->
 	<script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
 	<!-- Bootstrap -->
@@ -105,4 +91,3 @@
 
 	</body>
 </html>
-
