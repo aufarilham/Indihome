@@ -19,26 +19,12 @@
               </div>';
             } ?>
               <table style="font-size: 12px" width="100%">
-              <tr>
-              Foto Menu
-              <td rowspan="6"><img id="image-preview" alt="image preview"/>
-              <br/>
-              <input type="file" id="image-source" name="previewimage" required onchange="previewImage();"/></td>
-                  <td style="padding: 5px">Kode Menu</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="kodemenu" placeholder="Kode Makanan harus berbeda dengan yang lain" required /></td>
-                </tr>
+              
                 <tr>
                   <td style="padding: 5px">Nama Menu</td>
                   <td style="padding: 5px"><input class="form-control" type="text" name="namamenu" placeholder="Masukkan nama menu makanan" required/></td>
                 </tr>
-                <tr>
-                  <td style="padding: 5px">Kategori</td>
-                  <td style="padding: 5px"><select class="form-control" name="kategorimenu" title="namaKategori">
-                    <?php foreach($namakategori as $k){?>
-                    <option value="<?php echo $k['namaKategori']?>"><?php echo $k['namaKategori']; ?></option>
-                    <?php }?>
-                  </select></td>
-                </tr>
+                
                 <tr>
                   <td style="padding: 5px">Harga</td>
                   <td style="padding: 5px"><input class="form-control" type="number" min=0 name="hargamenu" placeholder="Hanya angka" required/></td>

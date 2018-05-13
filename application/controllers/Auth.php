@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
 			$this->session->set_userdata('loggedin', $loginadminData);
 			$timeLogin = array('lastLogin' => $this->Authmin_model->now());
 			$this->Authmin_model->updateData('id', $isLogin[0]->id, 'users', $timeLogin);
-			if($isLogin[0]->role == '3')
+			if($isLogin[0]->role == '2')
                 {
                     redirect(base_url('asman'));
                 } else {

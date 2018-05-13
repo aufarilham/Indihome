@@ -4,7 +4,7 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo site_url('admin/Dashboard/updateOA/'.$oa[0]->ospTerm)?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo site_url('asman/updateOA/'.$oa[0]->xConnectCable)?>" method="POST" enctype="multipart/form-data">
 
               <?php
               if($this->session->flashdata('success')){
@@ -20,6 +20,10 @@
             } ?>
               <table style="font-size: 14px" width="100%">
               <tr>
+                 <td style="padding: 5px">xConnectCable</td>
+                  <td style="padding: 5px"><input value="<?php echo $oa[0]->xConnectCable ?>" class="form-control" type="text" name="ospTerm" required readonly /></td>
+                </tr>
+                  <tr>
                  <td style="padding: 5px">ospTerm</td>
                   <td style="padding: 5px"><input value="<?php echo $oa[0]->ospTerm ?>" class="form-control" type="text" name="ospTerm" required readonly /></td>
                 </tr>
@@ -29,19 +33,24 @@
                 </tr>
                 <tr>
                   <td style="padding: 5px">Primary FC</td>
-                  <td style="padding: 5px"><input value="<?php echo $oa[0]->primaryFC?>" class="form-control" type="text" name="primaryFC" required/></td>
+                  <td style="padding: 5px"><input value="<?php echo $oa[0]->primaryFiberCable ?>" class="form-control" type="text" name="primaryFC" required/></td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px">loss Core</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->lossCore?>" class="form-control" type="text" name="lossCore" required/></td></tr>
-				<tr>
-                  <td style="padding: 5px">ODC Port In</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->odcPortIn?>" class="form-control" type="text" name="odcPortIn" required/></td>
-				</tr>
-				<tr>
-                  <td style="padding: 5px">Connect Cable</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->xConnectCable?>" class="form-control" type="text" name="xConnectCable" required/></td>
+                  <td style="padding: 5px">fileABDOSP</td>
+				  <td style="padding: 5px"><input value="<?php echo $oa[0]->fileABDOSP ?>" class="form-control" type="text" name="xConnectCable" required/></td>
                 </tr>
+                  <tr>
+                  <td style="padding: 5px">ODC Port In</td>
+				  <td style="padding: 5px"><input value="<?php echo $oa[0]->odcPORTIN ?>" class="form-control" type="text" name="odcPortIn" required/></td>
+				</tr>
+                  <tr>
+                  <td style="padding: 5px">loss Core</td>
+				  <td style="padding: 5px"><input value="<?php echo $oa[0]->lossCore ?>" class="form-control" type="text" name="lossCore" required/></td></tr>
+				<tr>
+                  <td style="padding: 5px">xConnectODCspin</td>
+				  <td style="padding: 5px"><input value="<?php echo $oa[0]->xConnectODCspin ?>" class="form-control" type="text" name="odcPortIn" required/></td>
+				</tr>
+				
                 <tr style="padding: 5px">
                   <td></td>
                   <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Update OA" /></td>

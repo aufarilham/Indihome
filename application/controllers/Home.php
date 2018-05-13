@@ -13,7 +13,7 @@ class Home extends CI_Controller {
             
 
             
-                if($data['role'] == '3')
+                if($data['role'] == '2')
                 {
                     redirect(base_url('asman'));
                 }

@@ -83,30 +83,26 @@
       <div class="col-md-12 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                 <div class="card-header"><i class="fa fa-coffee"></i> Top 5 Menus </div>
+                                 <div class="card-header"><i class="fa fa-coffee"></i> Roles </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                   <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAMA</th>
-                                            <th>Alamat</th>
-                                            <th>tipe</th>
-                                            <th>Manager</th>
+                                            <th>Role</th>
+                                            
                                             
 											
                                         </tr>
                                     </thead>
                                     <tbody>
-									 <?php foreach ($cabang as $data){?>
+									 <?php foreach ($role as $data){?>
 									 
                                         <tr>
-                                            <td><?php echo $data->CabangID;?></td>
-                                            <td><?php echo $data->namaCabang;?></td>
-                                            <td><?php echo $data->jalan;?>, <?php echo $data->kota;?>, <?php echo $data->kodePos;?></td>
-                                            <td><?php echo $data->tipe;?></td>
-                                            <td><?php echo $data->mgrID;?></td>
+                                            <td><?php echo $data->id;?></td>
+                                            <td><?php echo $data->role_name;?></td>
+                                            
                                             
 											
                                         </tr>

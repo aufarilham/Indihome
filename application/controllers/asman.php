@@ -7,7 +7,7 @@ class asman extends CI_Controller {
             parent::__construct();
 
             $this->load->model('Authmin_model');
-            if ($this->session->userdata('loggedin')['role'] != '3') {
+            if ($this->session->userdata('loggedin')['role'] != '2') {
             	redirect(base_url('Home'));
             }
         }
@@ -15,11 +15,19 @@ class asman extends CI_Controller {
 	public function index() {
 		$data['title'] = 'Assistent Manager Dashboard';
 		$dataload = array(
-		'cabang'=> $this->Authmin_model->getData('cabang')
+		'role'=> $this->Authmin_model->getData('role')
 		);
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('asman/dashboard', $dataload);
+		$this->load->view('asman/headfoot/footer');
+	}
+    
+    public function insertOA() {
+		$data['title'] = 'Add OA';
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('addOA');
 		$this->load->view('asman/headfoot/footer');
 	}
 
@@ -195,10 +203,10 @@ class asman extends CI_Controller {
 			redirect('asman/managemenu');
 	}
 
-	public function editOA($ospTerm) {
+	public function editOA($xConnectCable) {
 		$data['title'] = 'Edit Menu';
 		$dataSelMenu= array(
-			'oa' => $this->Authmin_model->getSelData('oa', 'ospTerm', $ospTerm),
+			'oa' => $this->Authmin_model->getSelData('oa', 'xConnectCable', $xConnectCable),
 			'title' => 'Edit OA');
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
