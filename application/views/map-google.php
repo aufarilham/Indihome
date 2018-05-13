@@ -19,6 +19,12 @@
     <link href="<?php echo base_url()?>assets/css/style2.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?php echo base_url()?>assets/css/colors/default.css" id="theme" rel="stylesheet">
+	<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -131,12 +137,30 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Simple Basic Map</h3>
-                            <div id="gmaps-simple" class="gmaps"></div>
+                            <h3 class="box-title">Map</h3>
+                            <div id="map"></div>
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
+				
+    
+    <script>
+      function initMap() {
+        var uluru = {lat: -6.232342, lng: 106.644};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsHHoz7JsYndlJGxGwU2OT-W--ZKM1Cos&callback=initMap">
+    </script>
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
@@ -157,9 +181,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url()?>assets/js/custom.min.js"></script>
     <!-- google maps api -->
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="<?php echo base_url()?>assets/bower_components/gmaps/gmaps.min.js"></script>
-    <script src="<?php echo base_url()?>assets/bower_components/gmaps/jquery.gmaps.js"></script>
+    
 </body>
 
 </html>

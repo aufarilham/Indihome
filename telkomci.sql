@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 03:42 PM
+-- Generation Time: May 12, 2018 at 11:33 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -312,13 +312,13 @@ CREATE TABLE `oa` (
 --
 
 INSERT INTO `oa` (`ospTerm`, `feederCable`, `primaryFC`, `lossCore`, `odcPortIn`, `xConnectCable`, `cabangID`, `kodeRak`) VALUES
-('TPR-OA-01-01-13.4', 'TPR-FE-01(288)-004', 'TPR-PF-01(96)-04', '23', 'TPR-FLL-A.04', 'TPR-PC-1036', 'BP101', '134'),
+('TPR-OA-01-01-13.4', 'TPR-FE-01(288)-004', 'TPR-PF-01(96)-04', '24', 'TPR-FLL-A.04', 'TPR-PC-1234', 'BP101', '134'),
 ('TPR-OA-02-01-13.5', 'TPR-FE-02(201)-005', 'TPR-PF-02(95)-05', '12', 'TPR-FLL-B.05', 'TPR-PC-2216', 'JK201', '135'),
 ('TPR-OA-02-01-13.6', 'TPR-FE-02(201)-006', 'TPR-PF-02(95)-06', '13', 'TPR-FLL-B.06', 'TPR-PC-2217', 'JK201', '136'),
 ('TPR-OA-02-02-14.1', 'TPR-FE-02(202)-001', 'TPR-PF-02(93)-01', '19', 'TPR-FLL-E.01', 'TPR-PC-2012', 'JK202', '141'),
 ('TPR-OA-02-02-14.2', 'TPR-FE-02(202)-002', 'TPR-PF-02(93)-02', '19', 'TPR-FLL-E.02', 'TPR-PC-2013', 'JK202', '142'),
 ('TPR-OA-02-04-13.6', 'TPR-FE-02(204)-006', 'TPR-PF-02(94)-06', '30', 'TPR-FLL-C.06', 'TPR-PC-2964', 'JK204', '136'),
-('TPR-OA-02-04-13.7', 'TPR-FE-02(204)-007', 'TPR-PF-02(94)-07', '31', 'TPR-FLL-C.07', 'TPR-PC-2967', 'JK204', '137'),
+('TPR-OA-02-04-13.7', 'TPR-FE-02(204)-007', 'TPR-PF-02(94)-07', '31', 'TPR-FLL-C.07', 'TPR-PC-2969', 'JK204', '137'),
 ('TPR-OA-02-04-14.3', 'TPR-FE-02(204)-003', 'TPR-PF-02(92)-03', '10', 'TPR-FLL-H.03', 'TPR-PC-2185', 'JK204', '143'),
 ('TPR-OA-02-04-14.4', 'TPR-FE-02(204)-004', 'TPR-PF-02(92)-04', '14', 'TPR-FLL-H.04', 'TPR-PC-2189', 'JK204', '144'),
 ('TPR-OA-02-04-15.1', 'TPR-FE-02(205)-001', 'TPR-PF-02(85)-01', '15', 'TPR-FLL-I.01', 'TPR-PC-2501', 'JK205', '101'),
@@ -869,17 +869,19 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lastLogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
-(1, 'senjadijakarta@gmail.com', '5216100123', 1),
-(2, 'wildan@gmail.com', '5216100029', 2),
-(3, '123', '123', 3);
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `created`, `lastLogin`) VALUES
+(1, 'senjadijakarta@gmail.com', '5216100123', 1, '2018-05-12 17:10:23', '0000-00-00 00:00:00'),
+(2, 'wildan@gmail.com', '5216100029', 2, '2018-05-12 17:10:23', '0000-00-00 00:00:00'),
+(3, '123', '123', 3, '2018-05-12 20:01:32', '2018-05-12 20:01:32');
 
 --
 -- Indexes for dumped tables
