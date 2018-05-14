@@ -121,6 +121,20 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+	public function getSeltwoData($namaTabel, $where1, $where2, $datawhere1, $datawhere2) {
+		$this->db->select('*');
+		$this->db->from($namaTabel);
+		$this->db->where($where1, $datawhere1);
+		$this->db->where($where2, $datawhere2);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 	public function getOrder() {
 		$this->db->select('*');
 		$this->db->from('order');
@@ -164,7 +178,7 @@ class Authmin_model extends CI_Model {
 
 	 public function insertData($namaTabel, $data) {
 		try{
-			$hasil = $this->db->insert($namaTabel, $data);
+			$hasil = $this->db->insert($namaTabel, $data); 
 			if (!$hasil) {
 				throw new Exception('error in query');
 				return false;
@@ -182,7 +196,8 @@ class Authmin_model extends CI_Model {
 
 	public function updateData($where, $wheredata, $namaTabel, $data) {
 		$this->db->where($where, $wheredata);
-		$this->db->update($namaTabel, $data);
+		return $this->db->update($namaTabel, $data);
+        
 	}
 
 	public function getTopMenu() {

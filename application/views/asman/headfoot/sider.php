@@ -9,12 +9,11 @@
   <meta name="author" content="">
   <title><?php echo $title; ?></title>
   <!-- Bootstrap core CSS-->
-  <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css?version=<?php echo filemtime('bootstrap.min.css'); ?>" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="<?php echo base_url()?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>assets/images/Indihome_Icon.png">
+  <link href="<?php echo base_url()?>assets/vendor/font-awesome/css/font-awesome.min.css?version=<?php echo filemtime('font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="<?php echo base_url()?>assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/datatables/dataTables.bootstrap4.css?version=<?php echo filemtime('dataTables.bootstrap4.css'); ?>" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url()?>assets/css/sb-admin.css" rel="stylesheet">
   
@@ -41,47 +40,54 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Menu">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Cable">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-coffee"></i>
             <span class="nav-link-text">Manage Cable</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="<?php echo base_url()?>asman/manageOA">OA</a>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageEA">EA</a>
             </li>
             <li>
-              <a href="<?php echo base_url()?>asman/manageOA2">OA2</a>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageOA">OA</a>
             </li>
             <li>
-              <a href="<?php echo base_url()?>asman/odp">ODP</a>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageODC">ODC</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageODP">ODP</a>
             </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Order">
-          <a class="nav-link" href="<?php echo base_url()?>asman/manageorders">
+          <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/managePelanggan">
             <i class="fa fa-fw fa-list"></i>
-            <span class="nav-link-text">XX</span>
+            <span class="nav-link-text">Tracking</span>
           </a>
         </li>
+          
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage User">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-user"></i>
-            <span class="nav-link-text">YY</span>
+            <span class="nav-link-text">Manage User</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+            <?php if($this->session->userdata('loggedin')['role'] == '2') {?>
             <li>
-              <a href="<?php echo base_url()?>asman/manageUser">YY1</a>
-            </li>
-            <?php if($this->session->userdata('loggedin')['role'] == 1) {?>
-            <li>
-              <a href="<?php echo base_url()?>asman/addAdmin">YY2</a>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageRole">Role</a>
             </li>
             <li>
-              <a href="<?php echo base_url()?>asman/manageAdmin">YY3</a>
+              <a href="<?php echo base_url()?><?php echo $role; ?>/manageUser">User</a>
             </li>
             <?php } ?>
           </ul>
+        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Order">
+          <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/managePelanggan">
+            <i class="fa fa-fw fa-list"></i>
+            <span class="nav-link-text">Manage Pelanggan</span>
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">

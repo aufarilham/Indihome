@@ -9,9 +9,6 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 		if($this->session->userdata('loggedin')){
             $data = $this->session->userdata('loggedin');
-
-            
-
             
                 if($data['role'] == '2')
                 {

@@ -14,6 +14,7 @@ class asman extends CI_Controller {
 
 	public function index() {
 		$data['title'] = 'Assistent Manager Dashboard';
+        $data['role'] = 'asman';
 		$dataload = array(
 		'role'=> $this->Authmin_model->getData('role')
 		);
@@ -25,9 +26,19 @@ class asman extends CI_Controller {
     
     public function insertOA() {
 		$data['title'] = 'Add OA';
+        $data['role'] = 'asman';
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('addOA');
+		$this->load->view('asman/headfoot/footer');
+	}
+    
+        public function insertEA() {
+		$data['title'] = 'Add EA';
+        $data['role'] = 'asman';
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('addEA');
 		$this->load->view('asman/headfoot/footer');
 	}
 
@@ -81,43 +92,63 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
-	public function insertMenu() {
-		$kode = htmlspecialchars($this->input->post('kodemenu'));
-		$nama = htmlspecialchars(strtoupper($this->input->post('namamenu')));
-		$kategori = $this->input->post('kategorimenu');
-		$harga = $this->input->post('hargamenu');
-		$deskripsi = htmlspecialchars($this->input->post('deskripmenu'));
-
-		$config = array(
-				'upload_path'=> './assets/fotomenu/',
-				'allowed_types'=>'gif|jpg|png|jpeg',
-				'max_size'=>2048,
-				'overwrite'=>true,
-				'file_name'=> $kategori . '_' . $this->input->post('kodemenu'));
-		$this->upload->initialize($config);
-		$upload = $this->upload->do_upload('previewimage');
-
-		if($upload) {
-			$datainsert = array(
-				'kode' => $kode,
-				'nama' => $nama,
-				'kategori' => $kategori,
-				'harga' => $harga,
-				'deskripsi' => $deskripsi,
-				'image' => 'assets/fotomenu/'.$this->upload->data('file_name'));
-
-			$insert = $this->Authmin_model->InsertData('menu', $datainsert);
+	public function addOA() {
+		$xConnectCable = ($this->input->post('xConnectCable'));
+        $ospTerm = ($this->input->post('ospTerm'));
+		$feederCable = ($this->input->post('feederCable'));
+		$primaryFC = ($this->input->post('primaryFC'));
+        $fileABDOSP = ($this->input->post('fileABDOSP'));
+		$odcPortIn = ($this->input->post('odcPortIn'));
+        $lossCore = ($this->input->post('lossCore'));
+        $xConnectODCspin = ($this->input->post('xConnectODCspin'));
+		
+        $datainsert = array(
+				'xConnectCable' => $xConnectCable,
+				'ospTerm' => $ospTerm,
+				'feederCable' => $feederCable,
+				'primaryFiberCable' => $primaryFC,
+				'fileABDOSP' => $fileABDOSP,
+                'odcPortIn' => $odcPortIn,
+                'lossCore' => $lossCore,
+                'xConnectODCspin' => $xConnectODCspin                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('oa', $datainsert);
 			if($insert) {
-				$this->session->set_flashdata('success', ' '. $nama . " berhasil ditambahkan ke menu.");
-				redirect('asman/addMenu');
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
+				redirect('asman/addOA');
 			} else {
-				$this->session->set_flashdata('error','Menu gagal ditambahkan, cek kode makanan.');
-				redirect('asman/addMenu');
+				$this->session->set_flashdata('error','OA gagal ditambahkan, cek kode makanan.');
+				redirect('asman/manageOA');
 			}
-		} else {
-				$this->session->set_flashdata('error','Gagal upload Gambar. Maksimal gambar adalah 2MB');
-				redirect('asman/addMenu');
-		}
+
+	}
+
+    public function addEA() {
+		$xConnectCable = ($this->input->post('xConnectCable'));
+        $eqpIP = ($this->input->post('eqpIP'));
+		$eqpPORT = ($this->input->post('eqpPORT'));
+		$eqpTERM = ($this->input->post('eqpTERM'));
+        
+		
+        $datainsert = array(
+				'xConnectCable' => $xConnectCable,
+				'eqpIP' => $eqpIP,
+				'eqpPORT' => $eqpPORT,
+				'eqpTERM' => $eqpTERM,
+				                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('ea', $datainsert);
+            
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke EA.");
+				redirect('asman/manageEA');
+			} else {
+				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
+				redirect('asman/insertEA');
+			}
+
 	}
 
 	public function addCategory() {
@@ -188,11 +219,36 @@ class asman extends CI_Controller {
 	
 	public function manageOA() {
 		$data['title'] = 'Manage OA';
+        $data['role'] = 'asman';
 		$datamenu = array(
 			'OA' => $this->Authmin_model->getAllData('oa', 'ospTerm', 'ASC'));
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('OA', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function manageODC() {
+		$data['title'] = 'Manage ODC';
+        $data['role'] = 'asman';
+		$datamenu = array(
+			'ODC' => $this->Authmin_model->getAllData('odc', 'xConnectODCspin', 'ASC'));
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('ODC', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+    
+    public function manageEA() {
+		$data['title'] = 'Manage EA';
+        $data['role'] = 'asman';
+		$datamenu = array(
+			'EA' => $this->Authmin_model->getAllData('ea', 'xConnectCable', 'ASC'),
+            'role'=> 'asman'
+        );
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('EA', $datamenu);
 		$this->load->view('asman/headfoot/footer');
 	}
 	
@@ -204,7 +260,8 @@ class asman extends CI_Controller {
 	}
 
 	public function editOA($xConnectCable) {
-		$data['title'] = 'Edit Menu';
+		$data['title'] = 'Edit OA';
+        $data['role'] = 'asman';
 		$dataSelMenu= array(
 			'oa' => $this->Authmin_model->getSelData('oa', 'xConnectCable', $xConnectCable),
 			'title' => 'Edit OA');
@@ -214,26 +271,93 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
+	
+	public function editEA($xConnectCable) {
+		$data['title'] = 'Edit EA';
+        $data['role'] = 'asman';
+		$dataSelMenu= array(
+			'ea' => $this->Authmin_model->getSelData('ea', 'xConnectCable', $xConnectCable),
+			'title' => 'Edit EA');
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('editEA', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function editODC($xConnectODCspin, $xConnectODCspout) {
+		$xConnectODCspin;
+		$xConnectODCspout;
+		$data['title'] = 'Edit ODC';
+        $data['role'] = 'asman';
+		$dataSelMenu= array(
+			'odc' => $this->Authmin_model->getSeltwoData('odc', 'xConnectODCspin', 'xConnectODCspout', $xConnectODCspin, $xConnectODCspout),
+			'title' => 'Edit ODC');
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('editODC', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function showODCkord($xConnectODCspin, $xConnectODCspout) {
+		$xConnectODCspin;
+		$xConnectODCspout;
+		$data['title'] = 'ODC Maps';
+        $data['role'] = 'asman';
+		$dataSelMenu= array(
+			'odc' => $this->Authmin_model->getSeltwoData('odc', 'xConnectODCspin', 'xConnectODCspout', $xConnectODCspin, $xConnectODCspout),
+			'title' => 'ODC Maps');
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('odcMaps', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+
+
 	public function updateOA() {
-		$ospTerm = ($this->input->post('ospTerm'));
+		$xConnectCable = ($this->input->post('xConnectCable'));
+        $ospTerm = ($this->input->post('ospTerm'));
 		$feederCable = ($this->input->post('feederCable'));
 		$primaryFC = ($this->input->post('primaryFC'));
-		$lossCore = ($this->input->post('lossCore'));
+        $fileABDOSP = ($this->input->post('fileABDOSP'));
 		$odcPortIn = ($this->input->post('odcPortIn'));
-		$xConnectCable = ($this->input->post('xConnectCable'));
+        $lossCore = ($this->input->post('lossCore'));
+        $xConnectODCspin = ($this->input->post('xConnectODCspin'));
+		
 		$dataupdate = array(
+				
 				'ospTerm' => $ospTerm,
 				'feederCable' => $feederCable,
-				'primaryFC' => $primaryFC,
-				'lossCore' => $lossCore,
-				'odcPortIn' => $odcPortIn,
-				'xConnectCable' => $xConnectCable
+				'primaryFiberCable' => $primaryFC,
+				'fileABDOSP' => $fileABDOSP,
+                'odcPortIn' => $odcPortIn,
+                'lossCore' => $lossCore,
+                'xConnectODCspin' => $xConnectODCspin
 				);
 
-			$update = $this->Authmin_model->updateData('ospTerm', $ospTerm, 'oa', $dataupdate);
-			$this->session->set_flashdata('success', ' '. $nama . " berhasil diupdate.");
+			$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'oa', $dataupdate);
+			$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
 			redirect('asman/manageOA');
 		} 
+		public function updateEA() {
+			$xConnectCable = ($this->input->post('xConnectCable'));
+			$eqpIP = ($this->input->post('eqpIP'));
+			$eqpPORT = ($this->input->post('eqpPORT'));
+			$eqpTERM = ($this->input->post('eqpTERM'));
+			
+			$dataupdate = array(
+					
+					'xConnectCable' => $xConnectCable,
+					'eqpIP' => $eqpIP,
+					'eqpPORT' => $eqpPORT,
+					'eqpTERM' => $eqpTERM
+					);
+	
+				$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'ea', $dataupdate);
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
+				redirect('asman/manageEA');
+			} 
+		
 	
 
 	public function manageorders() {

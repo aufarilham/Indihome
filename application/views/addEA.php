@@ -4,7 +4,7 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role; ?>/addOA" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url()?><?php echo $role; ?>/addEA" method="POST" enctype="multipart/form-data">
 
               <?php
               if($this->session->flashdata('success')){
@@ -20,43 +20,26 @@
             } ?>
               <table style="font-size: 12px" width="100%">
               
-                <tr>
+                  <tr>
                   <td style="padding: 5px">xConnectCable</td>
                   <td style="padding: 5px"><input class="form-control" type="text" name="xConnectCable" placeholder="" required/></td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px">ospTerm</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="ospTerm" placeholder="" required/></td>
+                  <td style="padding: 5px">eqpIP</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpIP" placeholder="" required/></td>
                 </tr>
                   <tr>
-                  <td style="padding: 5px">feederCable</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="feederCable" placeholder="" required/></td>
+                  <td style="padding: 5px">eqpPORT</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpPORT" placeholder="" required/></td>
                 </tr>
                   <tr>
-                  <td style="padding: 5px">primaryFC</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="primaryFC" placeholder="" required/></td>
+                  <td style="padding: 5px">eqpTERM</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpTERM" placeholder="" required/></td>
                 </tr>
-                  <tr>
-                  <td style="padding: 5px">fileABDOSP</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="fileABDOSP" placeholder="" required/></td>
-                </tr>
-
-                  <tr>
-                  <td style="padding: 5px">odcPortIn</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="odcPortIn" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">lossCore</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="lossCore" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">xConnectODCspin</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectODCspin" placeholder="" required/></td>
-                </tr>
-                
+                  
                 <tr style="padding: 5px">
                   <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add OA" /></td>
+                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add EA" /></td>
                 </tr>
               </table>
             </form>
