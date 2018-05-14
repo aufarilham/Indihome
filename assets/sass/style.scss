@@ -141,8 +141,8 @@ a {
 		font-size: 16px;
 		font-weight: 300;
 		height: 50px;
-		padding-left: 0;
-		padding-right: 0;
+		padding-left: 2;
+		padding-right: 2;
 		border: none;
 		border-bottom: 1px solid rgba($brand-black, .1);
 		@include box-shadow-none;

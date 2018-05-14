@@ -51,9 +51,9 @@
 
 				</div>
 				<div class="col-md-4 col-xs-12" style="margin-top: 100px">
-					<form action=<?php echo base_url('login/aksi_login'); ?> class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
+					<form action=<?php echo base_url('Auth/loginadmin')?> class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
 						<h2>Sign In</h2>
-						<div class="form-group">
+						<div class="form-group" >
 							<label for="username" class="sr-only">Username</label>
 							<input type="text" name="username" class="form-control" id="username" placeholder="Username" autocomplete="off">
 						</div>

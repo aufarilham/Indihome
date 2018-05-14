@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'Home';
 $route['profil']='home/controllerprofil';
 
 $route['halaman-awal']='home/basic_table';
