@@ -15,31 +15,38 @@ class Login_Test extends CI_Controller {
 	public function good_login()
 	{
 		$temp = $this->Authmin_model->getUser();
+		
 		$indx = rand(0, (sizeof($temp)-1));
-		$where = array(
-			'username_pengguna' => $temp[$indx]['username'],
-			'password_pengguna' => $temp[$indx]['password']
-		);
-		$cek = $this->Authmin_model->loginAdmin($where[username_pengguna],$where[password_pengguna]);
-		$test = count($cek);
-		$expected_result = 1;
-		$test_name = 'Username and Password Matched to Database';
-		$this->unit->run($test, $expected_result, $test_name);
+
+		
+		
+			$where = array(
+				'username_pengguna' => $temp[$indx]['username'],
+				'password_pengguna' => $temp[$indx]['password']
+			);
+			$cek = $this->Authmin_model->loginAdmin($where[username_pengguna],$where[password_pengguna]);
+			$test = count($cek);
+			$expected_result = 1;
+			$test_name = 'Username = '. $where[username_pengguna] .'and Password ='. $where[password_pengguna].' sama';
+			$this->unit->run($test, $expected_result, $test_name);
+		
+		
 		
 	}
 	
+
 	public function wrong_password()
 	{
 		$temp = $this->Authmin_model->getUser();
 		$indx = rand(0,sizeof($temp)-1);
 		$where = array(
-			'username_pengguna' => $temp[$indx]['username_pengguna'],
+			'username_pengguna' => $temp[$indx]['username'],
 			'password_pengguna' => 'wrong Password'
 		);
 		$cek = $this->Authmin_model->loginAdmin($where[username_pengguna],$where[password_pengguna]);
 		$test = count($cek);
 		$expected_result = 0;
-		$test_name = 'User login using wrong password';
+		$test_name = 'Username ='. $where[username_pengguna] .'and Password ='. $where[password_pengguna]. 'salah';
 		$this->unit->run($test, $expected_result, $test_name);
 	}
 }
