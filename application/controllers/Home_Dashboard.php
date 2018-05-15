@@ -20,7 +20,15 @@ class Home_Dashboard extends CI_Controller {
 		}
 		$this->load->view("user/menu", $menu);
 		$this->load->view("user/headfoot/footer");
-	}	
+
+		log_message('debug', "Smarty Class Initialized");
+    }
+
+    function setDebug( $debug=true )
+    {
+        $this->debug = $debug;
+    }
+
 
 	public function shoppingcart() {
 		$this->load->view("user/headfoot/headerlogin");
@@ -98,4 +106,37 @@ class Home_Dashboard extends CI_Controller {
 		}
 		$this->load->view("user/headfoot/footer");
 	}	
+
+	function view($template, $data = array(), $return = FALSE)
+    {
+        if ( ! $this->debug )
+        {
+            $this->error_reporting = false;
+        }
+        $this->error_unassigned = false;
+
+        foreach ($data as $key => $val)
+        {
+            $this->assign($key, $val);
+        }
+        
+        if ($return == FALSE)
+        {
+            $CI =& get_instance();
+            if (method_exists( $CI->output, 'set_output' ))
+            {
+                $CI->output->set_output( $this->fetch($template) );
+            }
+            else
+            {
+                $CI->output->final_output = $this->fetch($template);
+            }
+            return;
+        }
+        else
+        {
+            return $this->fetch($template);
+        }
+    }
+}
 }
