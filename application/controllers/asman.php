@@ -3,18 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class asman extends CI_Controller {
 
+	
 	public function __construct() {
-            parent::__construct();
-
+			parent::__construct();
+			
+			
             $this->load->model('Authmin_model');
             if ($this->session->userdata('loggedin')['role'] != '2') {
             	redirect(base_url('Home'));
-            }
+			}
+			
+			
         }
 
+	public function userrole(){
+		return 'asman';
+	}
 	public function index() {
-		$data['title'] = 'Assistent Manager Dashboard';
-        $data['role'] = 'asman';
+		$data['title'] = $this->userrole();
+        $data['role'] = $this->userrole();
 		$dataload = array(
 		'role'=> $this->Authmin_model->getData('role')
 		);
@@ -26,16 +33,33 @@ class asman extends CI_Controller {
     
     public function insertOA() {
 		$data['title'] = 'Add OA';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('addOA');
 		$this->load->view('asman/headfoot/footer');
 	}
-    
+	
+	public function insertODC() {
+		$data['title'] = 'Add ODC';
+        $data['role'] = $this->userrole();
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('addODC');
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function insertODP() {
+		$data['title'] = 'Add ODP';
+        $data['role'] = $this->userrole();
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('addODP');
+		$this->load->view('asman/headfoot/footer');
+	}
         public function insertEA() {
 		$data['title'] = 'Add EA';
-        $data['role'] = 'asman';
+        $data['role'] = $userrole;
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('addEA');
@@ -116,13 +140,91 @@ class asman extends CI_Controller {
 			$insert = $this->Authmin_model->InsertData('oa', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
-				redirect('asman/addOA');
+				redirect(''. $this->userrole() .'/manageOA');
 			} else {
 				$this->session->set_flashdata('error','OA gagal ditambahkan, cek kode makanan.');
-				redirect('asman/manageOA');
+				redirect(''. $this->userrole() .'/insertOA');
 			}
 
 	}
+
+	public function addODC() {
+		$xConnectODCspin = ($this->input->post('xConnectODCspin'));
+        $xConnectODCspout = ($this->input->post('xConnectODCspout'));
+		$odcPORTOUT = ($this->input->post('odcPORTOUT'));
+		$distributionCable = ($this->input->post('distributionCable'));
+        $fileABDODC = ($this->input->post('fileABDODC'));
+		$odpAddress = ($this->input->post('$odpAddress'));
+		$odpKordX = ($this->input->post('odpKordX'));
+		$odpKordY = ($this->input->post('odpKordy'));
+		$odpSPIN = ($this->input->post('odpSPIN'));
+		
+        $datainsert = array(
+				'xConnectODCspin' => $xConnectODCspin,	
+				'xConnectODCspout' => $xConnectODCspout,
+				'odcPORTOUT' => $odcPORTOUT,
+				'distributionCable' => $distributionCable,
+				'fileABDODC' => $fileABDODC,
+                'odpAddress' => $odpAddress,
+				'odpKordX' => $odpKordX,
+				'odpKordY' => $odpKordY,
+				'odpSPIN' => $odpSPIN
+                                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('odc', $datainsert);
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
+				redirect(''. $this->userrole() .'/manageODC');
+			} else {
+				$this->session->set_flashdata('error','ODC gagal ditambahkan, cek kode makanan.');
+				redirect(''. $this->userrole() .'/insertODC');
+			}
+
+	}
+
+	
+	public function addODP() {
+		$odpSPIN = ($this->input->post('odpSPIN'));
+		$odpIDPORT = ($this->input->post('odpSPIN'));
+		$kondisi = ($this->input->post('kondisi'));
+		$odpName = ($this->input->post('odpName'));
+		$noModem = ($this->input->post('noModem'));
+		$noInternet = ($this->input->post('noInternet'));
+		$noTelepon = ($this->input->post('noTelepon'));
+		$noTelevisi = ($this->input->post('noTelevisi'));
+		$pelangganID = ($this->input->post('pelangganID'));
+		$operationDate = ($this->input->post('operationDate'));
+
+        $datainsert = array(
+				'odpSPIN' => $odpSPIN,	
+				'odpIDPORT' => $odpIDPORT,
+				'kondisi' => $kondisi,
+				'odpName' => $odpName,
+				'noModem' => $noModem,
+                'noInternet' => $noInternet,
+				'noTelepon' => $noTelepon,
+				'noTelevisi' => $noTelevisi,
+				'pelangganID' => $pelangganID,
+				'operationDate' => $operationDate
+                                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('odp', $datainsert);
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke ODP.");
+				redirect(''. $this->userrole() .'/manageODP');
+			} else {
+				$this->session->set_flashdata('error','ODP gagal ditambahkan, cek kode makanan.');
+				redirect(''. $this->userrole() .'/insertODP');
+			}
+
+	}
+
+
+
+
+
 
     public function addEA() {
 		$xConnectCable = ($this->input->post('xConnectCable'));
@@ -143,10 +245,10 @@ class asman extends CI_Controller {
             
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke EA.");
-				redirect('asman/manageEA');
+				redirect(''. $this->userrole() .'/manageEA');
 			} else {
 				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
-				redirect('asman/insertEA');
+				redirect(''. $this->userrole() .'/insertEA');
 			}
 
 	}
@@ -219,7 +321,7 @@ class asman extends CI_Controller {
 	
 	public function manageOA() {
 		$data['title'] = 'Manage OA';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$datamenu = array(
 			'OA' => $this->Authmin_model->getAllData('oa', 'ospTerm', 'ASC'));
 		$this->load->view('asman/headfoot/sider',$data);
@@ -230,7 +332,7 @@ class asman extends CI_Controller {
 
 	public function manageODC() {
 		$data['title'] = 'Manage ODC';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$datamenu = array(
 			'ODC' => $this->Authmin_model->getAllData('odc', 'xConnectODCspin', 'ASC'));
 		$this->load->view('asman/headfoot/sider',$data);
@@ -238,10 +340,21 @@ class asman extends CI_Controller {
 		$this->load->view('ODC', $datamenu);
 		$this->load->view('asman/headfoot/footer');
 	}
+
+	public function manageODP() {
+		$data['title'] = 'Manage ODP';
+        $data['role'] = $this->userrole();
+		$datamenu = array(
+			'ODP' => $this->Authmin_model->getAllData('odp', 'odpIDPORT', 'ASC'));
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('ODP', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
     
     public function manageEA() {
 		$data['title'] = 'Manage EA';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$datamenu = array(
 			'EA' => $this->Authmin_model->getAllData('ea', 'xConnectCable', 'ASC'),
             'role'=> 'asman'
@@ -261,7 +374,7 @@ class asman extends CI_Controller {
 
 	public function editOA($xConnectCable) {
 		$data['title'] = 'Edit OA';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$dataSelMenu= array(
 			'oa' => $this->Authmin_model->getSelData('oa', 'xConnectCable', $xConnectCable),
 			'title' => 'Edit OA');
@@ -274,7 +387,7 @@ class asman extends CI_Controller {
 	
 	public function editEA($xConnectCable) {
 		$data['title'] = 'Edit EA';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$dataSelMenu= array(
 			'ea' => $this->Authmin_model->getSelData('ea', 'xConnectCable', $xConnectCable),
 			'title' => 'Edit EA');
@@ -284,11 +397,27 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
+	public function editODP($a, $b, $c, $d) {
+		
+		$a; $b; $c; $d;
+		$odpSPIN = $a.'/'.$b;
+		$odpIDPORT = $c.'/'.$d;
+		$data['title'] = 'Edit ODP';
+        $data['role'] = $this->userrole();
+		$dataSelMenu= array(
+			'odp' => $this->Authmin_model->getSeltwoData('odp', 'odpSPIN', 'odpIDPORT', $odpSPIN, $odpIDPORT),
+			'title' => 'Edit ODP');
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('editODP', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
 	public function editODC($xConnectODCspin, $xConnectODCspout) {
 		$xConnectODCspin;
 		$xConnectODCspout;
 		$data['title'] = 'Edit ODC';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$dataSelMenu= array(
 			'odc' => $this->Authmin_model->getSeltwoData('odc', 'xConnectODCspin', 'xConnectODCspout', $xConnectODCspin, $xConnectODCspout),
 			'title' => 'Edit ODC');
@@ -298,11 +427,14 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
+
+
+
 	public function showODCkord($xConnectODCspin, $xConnectODCspout) {
 		$xConnectODCspin;
 		$xConnectODCspout;
 		$data['title'] = 'ODC Maps';
-        $data['role'] = 'asman';
+        $data['role'] = $this->userrole();
 		$dataSelMenu= array(
 			'odc' => $this->Authmin_model->getSeltwoData('odc', 'xConnectODCspin', 'xConnectODCspout', $xConnectODCspin, $xConnectODCspout),
 			'title' => 'ODC Maps');
@@ -337,7 +469,7 @@ class asman extends CI_Controller {
 
 			$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'oa', $dataupdate);
 			$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-			redirect('asman/manageOA');
+			redirect(''. $this->userrole() .'/manageOA');
 		} 
 		public function updateEA() {
 			$xConnectCable = ($this->input->post('xConnectCable'));
@@ -355,7 +487,7 @@ class asman extends CI_Controller {
 	
 				$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'ea', $dataupdate);
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-				redirect('asman/manageEA');
+				redirect(''. $this->userrole() .'/manageEA');
 			} 
 		
 	

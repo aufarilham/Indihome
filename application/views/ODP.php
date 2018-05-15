@@ -2,14 +2,14 @@
 <div class="card-body">
           <div class="demo-grid" style="padding:1px">
             <form action="<?php echo base_url().$role ?>/insertODC" method="post"  enctype="multipart/form-data"> 
-                <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add ODC" /></td>
+                <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add ODP" /></td>
     </form>
     </div>
 </div>
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>List of ODC</div>
+          <i class="fa fa-table"></i>List of ODP</div>
         <div class="card-body">
           <div class="table-responsive">
             <?php
@@ -22,37 +22,38 @@
            <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>xConnectODCspin</th>
-                  <th>xConnectODCspout</th>
-                  <th>odcPORTOUT</th>
-                  <th>distributionCable</th>
-                    <th>fileABDODC</th>
-                    <th>odpAddress</th>
-                    <th>odpKordX</th>
-                    <th>odpKordY</th>
-                    <th>odpSPIN</th>
+                  <th>odpSPIN</th>
+                  <th>odpIDPORT</th>
+                  <th>kondisi</th>
+                  <th>odpName</th>
+                    <th>noModem</th>
+                    <th>noInternet</th>
+                    <th>noTelepon</th>
+                    <th>noTelevisi</th>
+                    <th>pelangganID</th>
+                    <th>operationDate</th>
 				  <th>action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                if(!empty($ODC)) {
-                  foreach ($ODC as $m) { ?>
+                if(!empty($ODP)) {
+                  foreach ($ODP as $m) { ?>
                 <tr>
-                  <td><?php echo $m['xConnectODCspin']; ?></td>
-                  <td><?php echo $m['xConnectODCspout'] ?></td>
-                  <td><?php echo $m['odcPORTOUT']; ?></td>
-                  <td><?php echo $m['distributionCable']; ?></td>
-                    <td><?php echo $m['fileABDODC']; ?></td>
-                    <td><?php echo $m['odpAddress']; ?></td>
-                    <td><?php echo $m['odpKordX']; ?></td>
-                    <td><?php echo $m['odpKordY']; ?></td>
-                    <td><?php echo $m['odpSPIN']; ?></td>
-				  
+                  <td><?php echo $m['odpSPIN']; ?></td>
+                  <td><?php echo $m['odpIDPORT'] ?></td>
+                  <td><?php echo $m['kondisi']; ?></td>
+                  <td><?php echo $m['odpName']; ?></td>
+                    <td><?php echo $m['noModem']; ?></td>
+                    <td><?php echo $m['noInternet']; ?></td>
+                    <td><?php echo $m['noTelepon']; ?></td>
+                    <td><?php echo $m['noTelevisi']; ?></td>
+                    <td><?php echo $m['pelangganID']; ?></td>
+                    <td><?php echo $m['operationDate']; ?></td>				  
 				  
                     <td>
-                    <p><a href="<?php echo base_url().$role.'/editODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                    <a href="<?php echo base_url().$role.'/showODCKord/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <p><a href="<?php echo base_url().$role.'/editODP/'.$m['odpSPIN'].'/'.$m['odpIDPORT'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    
                      <a href="<?php echo site_url('asman/deletemenu/'.$m['xConnectCable'])?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                      
                   </td>

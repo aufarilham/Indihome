@@ -108,6 +108,11 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+	function getUser(){
+        $res=$this->db->get('users'); 
+		return $res->result_array(); 
+	}
+
 	public function getSelData($namaTabel, $where, $datawhere) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);
