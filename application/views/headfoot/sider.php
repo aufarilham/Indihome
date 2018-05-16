@@ -28,14 +28,14 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #c90000;" id="mainNav">
     <img src="<?php echo base_url()?>assets/images/Indihome_Fiber2.png" style="max-width: 90px; margin-right: 20px">
-    <a class="navbar-brand" href="<?php echo base_url()?>asman">Assistent Manager Dashboard</a>
+    <a class="navbar-brand" href="<?php echo base_url()?><?php echo $role; ?>">Dashboard</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="<?php echo base_url()?>admin/Dashboard">
+          <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>

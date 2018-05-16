@@ -40,7 +40,7 @@
                   <td><?php echo $m['eqpTERM']; ?></td>
                   <td>
                     <p><a href="<?php echo base_url().$role.'/editEA/'.$m['xConnectCable'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                     <a href="<?php echo site_url('asman/deletemenu/'.$m['xConnectCable'])?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
+                     <a href="<?php echo base_url().$role.'/deleteEA/'.$m['xConnectCable'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                   </td>
                 </tr>
                 <?php }

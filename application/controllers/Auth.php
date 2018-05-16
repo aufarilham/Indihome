@@ -26,18 +26,23 @@ class Auth extends CI_Controller {
 		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passwordAdmin);
 		if($isLogin == true) {
 			$loginadminData = array(
-				'id' => $isLogin[0]->id,
+				'userID' => $isLogin[0]->userID,
 				'username' => $isLogin[0]->username,
+				'email' => $isLogin[0]->email,
 				'role' => $isLogin[0]->role,
 				'created' => $isLogin[0]->created,
 				'time' => $isLogin[0]->lastLogin);
 			$this->session->set_userdata('loggedin', $loginadminData);
 			$timeLogin = array('lastLogin' => $this->Authmin_model->now());
-			$this->Authmin_model->updateData('id', $isLogin[0]->id, 'users', $timeLogin);
+			$this->Authmin_model->updateData('userID', $isLogin[0]->userID, 'users', $timeLogin);
 			if($isLogin[0]->role == '2')
                 {
                     redirect(base_url('asman'));
-                } else {
+				} elseif($isLogin[0]->role == '5')
+                {
+                    redirect(base_url('staff'));
+                }  
+				else {
                 redirect(base_url('Home'));
             }
 			

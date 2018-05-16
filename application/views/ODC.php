@@ -51,9 +51,9 @@
 				  
 				  
                     <td>
-                    <p><a href="<?php echo base_url().$role.'/editODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                    <a href="<?php echo base_url().$role.'/showODCKordinat/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                     <a href="<?php echo site_url('asman/deletemenu/'.$m['xConnectCable'])?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
+                    <p><a href="<?php echo base_url().$role.'/editODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></br>
+                    <a href="<?php echo base_url().$role.'/showODCKordinat/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> gMaps</a></br>
+                     <a href="<?php echo base_url().$role.'/deleteODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                      
                   </td>
                 </tr>

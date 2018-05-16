@@ -1,5 +1,5 @@
      <!-- Icon Cards-->
-             <?php
+     <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -24,8 +24,8 @@
                             <td style="padding: 5px"><?php echo $this->session->userdata('loggedin')['username']?></td>
                           </tr>
                           <tr>
-                            <td style="padding: 5px">My Name</td>
-                            <td style="padding: 5px"><?php echo $this->session->userdata('loggedin')['name']?></td>
+                            <td style="padding: 5px">Email</td>
+                            <td style="padding: 5px"><?php echo $this->session->userdata('loggedin')['email']?></td>
                           </tr>
                           <tr>
                             <td style="padding: 5px">My Role</td>

@@ -78,7 +78,7 @@
         </li> -->
         
         <li class="nav-item">
-           <a href="<?php echo base_url()?>admin/Dashboard/myprofile" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['username']?> </a>
+           <a href="<?php echo base_url()?><?php echo $role; ?>/profile" class="nav-link"> Hi, <?php echo $this->session->userdata('loggedin')['username']?> </a>
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url()?>Auth/logoutadmin" class="nav-link">
@@ -92,7 +92,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?php echo base_url()?>asman/Dashboard">Dashboard</a>
+          <a href="<?php echo base_url()?><?php echo $role; ?>/Dashboard">Dashboard</a>
         </li>
         <li class="breadcrumb-item active"><?php echo $title; ?></li>
       </ol>

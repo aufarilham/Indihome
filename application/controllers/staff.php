@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class asman extends CI_Controller {
+class staff extends CI_Controller {
 
 	
 	public function __construct() {
@@ -9,7 +9,7 @@ class asman extends CI_Controller {
 			
 			
             $this->load->model('Authmin_model');
-            if ($this->session->userdata('loggedin')['role'] != '2') {
+            if ($this->session->userdata('loggedin')['role'] != '5') {
             	redirect(base_url('Home'));
 			}
 			
@@ -17,7 +17,7 @@ class asman extends CI_Controller {
         }
 
 	public function userrole(){
-		return 'asman';
+		return 'staff';
 	}
 	public function index() {
 		$data['title'] = $this->userrole();
@@ -93,8 +93,6 @@ class asman extends CI_Controller {
 		$this->load->view('headfoot/footer');
 	}
 
-	
-
 	public function myprofile() {
 		$data['title'] = 'My Profile';
 		$this->load->view('headfoot/sider',$data);
@@ -160,10 +158,10 @@ class asman extends CI_Controller {
 			$insert = $this->Authmin_model->InsertData('oa', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
-				redirect(base_url(''. $this->userrole() .'/manageOA'));
+				redirect(''. $this->userrole() .'/manageOA');
 			} else {
 				$this->session->set_flashdata('error','OA gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertOA'));
+				redirect(''. $this->userrole() .'/insertOA');
 			}
 
 	}
@@ -195,10 +193,10 @@ class asman extends CI_Controller {
 			$insert = $this->Authmin_model->InsertData('odc', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
-				redirect(base_url(''. $this->userrole() .'/manageODC'));
+				redirect(''. $this->userrole() .'/manageODC');
 			} else {
 				$this->session->set_flashdata('error','ODC gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertODC'));
+				redirect(''. $this->userrole() .'/insertODC');
 			}
 
 	}
@@ -219,16 +217,14 @@ class asman extends CI_Controller {
 			$insert = $this->Authmin_model->InsertData('pelanggan', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $pelangganID . " berhasil ditambahkan ke Pelanggan.");
-				redirect(base_url(''. $this->userrole() .'/managePelanggan'));
+				redirect(''. $this->userrole() .'/managePelanggan');
 			} else {
 				$this->session->set_flashdata('error','Pelanggan gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertPelanggan'));
+				redirect(''. $this->userrole() .'/insertPelanggan');
 			}
 
 	}
 
-	
-	
 	
 	public function addODP() {
 		$odpSPIN = ($this->input->post('odpSPIN'));
@@ -259,10 +255,10 @@ class asman extends CI_Controller {
 			$insert = $this->Authmin_model->InsertData('odp', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke ODP.");
-				redirect(base_url(''. $this->userrole() .'/manageODP'));
+				redirect(''. $this->userrole() .'/manageODP');
 			} else {
 				$this->session->set_flashdata('error','ODP gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertODP'));
+				redirect(''. $this->userrole() .'/insertODP');
 			}
 
 	}
@@ -291,10 +287,10 @@ class asman extends CI_Controller {
             
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke EA.");
-				redirect(base_url(''. $this->userrole() .'/manageEA'));
+				redirect(''. $this->userrole() .'/manageEA');
 			} else {
 				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertEA'));
+				redirect(''. $this->userrole() .'/insertEA');
 			}
 
 	}
@@ -324,10 +320,10 @@ class asman extends CI_Controller {
             
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $userID . " berhasil ditambahkan ke Users.");
-				redirect(base_url(''. $this->userrole() .'/manageUser'));
+				redirect(''. $this->userrole() .'/manageUser');
 			} else {
 				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
-				redirect(base_url(''. $this->userrole() .'/insertUsers'));
+				redirect(''. $this->userrole() .'/insertUsers');
 			}
 
 	}
@@ -374,45 +370,6 @@ class asman extends CI_Controller {
 		$this->session->set_flashdata('success','Admin berhasil Dihapus.');
 			redirect('asman/manageAdmin');
 	}
-
-	public function deleteOA($xConnectCable) {
-		$this->Authmin_model->deleteData('oa', 'xConnectCable', $xConnectCable);
-		$this->session->set_flashdata('success','OA berhasil Dihapus.');
-			redirect(base_url(''. $this->userrole() .'/manageOA'));
-	}
-
-	public function deleteEA($xConnectCable) {
-		$this->Authmin_model->deleteData('ea', 'xConnectCable', $xConnectCable);
-		$this->session->set_flashdata('success','EA berhasil Dihapus.');
-			redirect(base_url(''. $this->userrole() .'/manageEA'));
-			
-	}
-	public function deleteODC($xConnectODCspin, $xConnectODCspout) {
-		$xConnectODCspin;
-		$xConnectODCspout;
-		$this->Authmin_model->deletetwoData('odc', 'xConnectODCspin','xConnectODCspout', $xConnectODCspin, $xConnectODCspout);
-		$this->session->set_flashdata('success','ODC berhasil Dihapus.');
-			redirect(base_url(''. $this->userrole() .'/manageODC'));
-			
-	}
-
-	public function deleteODP($a, $b, $c, $d) {
-		
-		$a; $b; $c; $d;
-		$odpSPIN = $a.'/'.$b;
-		$odpIDPORT = $c.'/'.$d;
-		$this->Authmin_model->deletetwoData('odp', 'odpSPIN','odpIDPORT', $odpSPIN, $odpIDPORT);
-		$this->session->set_flashdata('success','ODP berhasil Dihapus.');
-			redirect(base_url(''. $this->userrole() .'/manageODP'));
-			
-	}
-
-	public function deletePelanggan($pelangganID) {
-		$this->Authmin_model->deleteData('pelanggan', 'pelangganID', $pelangganID);
-		$this->session->set_flashdata('success','Pelanggam berhasil Dihapus.');
-			redirect(base_url(''. $this->userrole() .'/managePelanggan'));
-			
-	}
 	
 	public function manageOA() {
 		$data['title'] = 'Manage OA';
@@ -451,7 +408,7 @@ class asman extends CI_Controller {
 		$data['title'] = 'Manage Role';
         $data['role'] = $this->userrole();
 		$datamenu = array(
-			'roles' => $this->Authmin_model->getAllData('role', 'id', 'ASC'));
+			'role' => $this->Authmin_model->getAllData('role', 'id', 'ASC'));
 		$this->load->view('headfoot/sider',$data);
 		$this->load->view('headfoot/header' ,$data);
 		$this->load->view('role', $datamenu);
@@ -533,18 +490,6 @@ class asman extends CI_Controller {
 		$this->load->view('headfoot/sider',$data);
 		$this->load->view('headfoot/header' ,$data);
 		$this->load->view('editEA', $dataSelMenu);
-		$this->load->view('headfoot/footer');
-	}
-
-	public function editRole($id) {
-		$data['title'] = 'Edit Role';
-        $data['role'] = $this->userrole();
-		$dataSelMenu= array(
-			'roles' => $this->Authmin_model->getSelData('role', 'id', $id),
-			'title' => 'Edit Role');
-		$this->load->view('headfoot/sider',$data);
-		$this->load->view('headfoot/header' ,$data);
-		$this->load->view('editRole', $dataSelMenu);
 		$this->load->view('headfoot/footer');
 	}
 
@@ -646,7 +591,7 @@ class asman extends CI_Controller {
 
 			$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'oa', $dataupdate);
 			$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-			redirect(base_url(''. $this->userrole() .'/manageOA'));
+			redirect(''. $this->userrole() .'/manageOA');
 		} 
 
 		public function updateODC() {
@@ -672,7 +617,7 @@ class asman extends CI_Controller {
         );
 				$update = $this->Authmin_model->updatetwoData('xConnectODCspin','xConnectODCspout', $xConnectODCspin, $xConnectODCspout, 'odc', $dataupdate);
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-				redirect(base_url(''. $this->userrole() .'/manageODC'));
+				redirect(''. $this->userrole() .'/manageODC');
 			} 
 
 			public function updateODP() {
@@ -702,7 +647,7 @@ class asman extends CI_Controller {
 		);
 				$update = $this->Authmin_model->updatetwoData('odpSPIN','odpIDPORT',$odpSPIN, $odpIDPORT, 'odp', $dataupdate);
 						$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-						redirect(base_url(''. $this->userrole() .'/manageODP'));
+						redirect(''. $this->userrole() .'/manageODP');
 					} 	
 		
 
@@ -723,7 +668,7 @@ class asman extends CI_Controller {
 	
 				$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'ea', $dataupdate);
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-				redirect(base_url(''. $this->userrole() .'/manageEA'));
+				redirect(''. $this->userrole() .'/manageEA');
 			}
 			
 			
@@ -741,23 +686,8 @@ class asman extends CI_Controller {
 	
 				$update = $this->Authmin_model->updateData('pelangganID', $pelangganID, 'pelanggan', $dataupdate);
 				$this->session->set_flashdata('success', ' '. $pelangganID . " berhasil diupdate.");
-				redirect(base_url(''. $this->userrole() .'/managePelanggan'));
+				redirect(''. $this->userrole() .'/managePelanggan');
 			}
-
-			public function updateRole() {
-				$id = ($this->input->post('id'));
-			$role_name = ($this->input->post('role_name'));
-			
-			$dataupdate = array(
-					
-					'role_name' => $role_name
-									
-			);
-		
-					$update = $this->Authmin_model->updateData('id', $id, 'role', $dataupdate);
-					$this->session->set_flashdata('success', ' '. $id . " berhasil diupdate.");
-					redirect(base_url(''. $this->userrole() .'/manageRole'));
-				}
 		
 	
 

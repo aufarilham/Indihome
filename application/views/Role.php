@@ -1,15 +1,9 @@
 <!-- Example DataTables Card-->
-<div class="card-body">
-          <div class="demo-grid" style="padding:1px">
-            <form action="<?php echo base_url()?>asman/insertUsers" method="post"  enctype="multipart/form-data"> 
-                <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add User" /></td>
-    </form>
-    </div>
-</div>
+
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>List of Users</div>
+          <i class="fa fa-table"></i>List of Role</div>
         <div class="card-body">
           <div class="table-responsive">
             <?php
@@ -22,25 +16,23 @@
            <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>userID</th>
-                    <th>username</th>
-                  <th>email</th>
-                  <th>role</th>
-                  <th>created</th>
-                  <th>lastLogin</th>
+                  <th>id</th>
+                    <th>role_name</th>
+                    <th>action</th>
+                    
                 </tr>
               </thead>
               <tbody>
                 <?php
-                if(!empty($users)) {
-                  foreach ($users as $m) { ?>
+                if(!empty($roles)) {
+                  foreach ($roles as $m) { ?>
                 <tr>
-                  <td><?php echo $m['userID']; ?></td>
-                  <td><?php echo $m['username'] ?></td>
-                  <td><?php echo $m['email']; ?></td>
-                  <td><?php echo $m['role']; ?></td>
-                  <td><?php echo $m['created']; ?></td>
-                  <td><?php echo $m['lastLogin']; ?></td>
+                  <td><?php echo $m['id']; ?></td>
+                  <td><?php echo $m['role_name'] ?></td>
+                  <td>
+                    <p><a href="<?php echo base_url().$role.'/editRole/'.$m['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                     
+                  </td>
                 </tr>
                 <?php }
               }?>

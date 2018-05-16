@@ -199,6 +199,16 @@ class Authmin_model extends CI_Model {
 		$this->db->delete($namaTabel);
 	}
 
+	public function deletetwoData($namaTabel, $where1, $where2, $data1, $data2) {
+		$this->db->where($where1, $data1);
+		$this->db->where($where2, $data2);
+		$this->db->delete($namaTabel);
+	}
+
+
+
+
+
 	public function updateData($where, $wheredata, $namaTabel, $data) {
 		$this->db->where($where, $wheredata);
 		return $this->db->update($namaTabel, $data);

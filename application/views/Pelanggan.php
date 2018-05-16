@@ -38,7 +38,7 @@
                   <td><?php echo $m['lokasi']; ?></td>
                   <td>
                     <p><a href="<?php echo base_url().$role.'/editPelanggan/'.$m['pelangganID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                     <a href="<?php echo site_url('asman/deletemenu/'.$m['pelangganID'])?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
+                     <a href="<?php echo base_url().$role.'/deletePelanggan/'.$m['pelangganID'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                   </td>
                 </tr>
                 <?php }
