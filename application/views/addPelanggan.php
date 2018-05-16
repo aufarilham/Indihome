@@ -4,8 +4,8 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role .'/updateEA/'?>" method="POST" enctype="multipart/form-data">
-            
+            <form action="<?php echo base_url()?><?php echo $role; ?>/addPelanggan" method="POST" enctype="multipart/form-data">
+
               <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
@@ -18,28 +18,25 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-              <table style="font-size: 14px" width="100%">
-              <tr>
-                 <td style="padding: 5px">xConnectCable</td>
-                  <td style="padding: 5px"><input value="<?php echo $ea[0]->xConnectCable ?>" class="form-control" type="text" name="xConnectCable" required readonly /></td>
+              <table style="font-size: 12px" width="100%">
+              
+                  <tr>
+                  <td style="padding: 5px">pelangganID</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="pelangganID" placeholder="" required/></td>
                 </tr>
                 <tr>
-                  <td style="padding: 5px">eqpIP</td>
-                  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpIP ?>" class="form-control" type="text" name="eqpIP" required/></td>
+                  <td style="padding: 5px">nama</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="nama" placeholder="" required/></td>
                 </tr>
-                <tr>
-                  <td style="padding: 5px">eqpPORT</td>
-                  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpPORT ?>" class="form-control" type="text" name="eqpPORT" required/></td>
+                  <tr>
+                  <td style="padding: 5px">lokasi</td>
+                  <td style="padding: 5px"><input class="form-control" type="text" name="lokasi" placeholder="" required/></td>
                 </tr>
-                <tr>
-                  <td style="padding: 5px">eqpTERM</td>
-				  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpTERM ?>" class="form-control" type="text" name="eqpTERM" required/></td>
-                </tr>
+
                   
-				
                 <tr style="padding: 5px">
                   <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Update EA" /></td>
+                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add Pelanggan" /></td>
                 </tr>
               </table>
             </form>
@@ -50,17 +47,18 @@
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Baleni 2017</small>
+        </div>
+      </div>
+    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
 
-	<script>
-  $(document).ready(function(){
-    $('#tabel-data').DataTable();
-});
-  </script>
     <script type="text/javascript">
     function previewImage() {
       document.getElementById("image-preview").style.display = "block";

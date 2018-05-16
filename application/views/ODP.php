@@ -1,7 +1,7 @@
 <!-- Example DataTables Card-->
 <div class="card-body">
           <div class="demo-grid" style="padding:1px">
-            <form action="<?php echo base_url().$role ?>/insertODC" method="post"  enctype="multipart/form-data"> 
+            <form action="<?php echo base_url().$role ?>/insertODP" method="post"  enctype="multipart/form-data"> 
                 <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add ODP" /></td>
     </form>
     </div>

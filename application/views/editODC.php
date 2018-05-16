@@ -4,8 +4,8 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form name ="form" action="<?php echo site_url('asman/updateOA/'.$odc[0]->xConnectCable)?>" method="POST" enctype="multipart/form-data">
-
+            <form name ="form" action="<?php echo base_url()?><?php echo $role .'/updateODC'?>" method="POST" enctype="multipart/form-data">
+            
               <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
@@ -59,7 +59,7 @@
                 <tr style="padding: 5px  border: 1px solid black;
   border-collapse: collapse";>
                   <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="button" onclick="getLocation()" value="get Kordinat" /> <input class="btn btn-primary" type="submit" name="submit" value="Update OA" /></td>
+                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="button" onclick="getLocation()" value="get Kordinat" /> <input class="btn btn-primary" type="submit" name="submit" value="Update ODC" /></td>
                 </tr>
               </table>
             </form>

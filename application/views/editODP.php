@@ -4,7 +4,7 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form name ="form" action="<?php echo site_url('asman/updateOA/'.$odp[0]->xConnectCable)?>" method="POST" enctype="multipart/form-data">
+            <form name ="form" action="<?php echo site_url('asman/updateODP/') ?>" method="POST" enctype="multipart/form-data">
 
               <?php
               if($this->session->flashdata('success')){
@@ -41,11 +41,15 @@
                 </tr>
                 <tr>
                   <td style="padding: 5px">noInternet</td>
-				  <td style="padding: 5px"><input value="<?php echo $odp[0]->noInternet ?>" class="form-control" type="text" name="nointernet" required/></td>
+				  <td style="padding: 5px"><input value="<?php echo $odp[0]->noInternet ?>" class="form-control" type="text" name="noInternet" required/></td>
                 </tr>
                 <tr>
                   <td style="padding: 5px">noTelepon</td>
 				  <td style="padding: 5px"><input value="<?php echo $odp[0]->noTelepon ?>" class="form-control" type="text" name="noTelepon" required/></td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px">noTelevisi</td>
+				  <td style="padding: 5px"><input value="<?php echo $odp[0]->noTelevisi ?>" class="form-control" type="text" name="noTelevisi" required/></td>
                 </tr>
                   <tr>
                   <td style="padding: 5px">pelangganID</td>
@@ -60,7 +64,7 @@
                 <tr style="padding: 5px  border: 1px solid black;
   border-collapse: collapse";>
                   <td></td>
-                  <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Update OA" /></td>
+                  <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Update ODP" /></td>
                 </tr>
               </table>
             </form>

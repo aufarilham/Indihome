@@ -4,7 +4,7 @@
           <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
         <div class="card-body">
           <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo site_url('asman/updateOA/'.$oa[0]->xConnectCable)?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url()?><?php echo $role .'/updateOA/'?>" method="POST" enctype="multipart/form-data">
 
               <?php
               if($this->session->flashdata('success')){

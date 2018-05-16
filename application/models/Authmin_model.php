@@ -205,6 +205,13 @@ class Authmin_model extends CI_Model {
         
 	}
 
+	public function updatetwoData($where1, $where2, $wheredata1, $wheredata2, $namaTabel, $data) {
+		$this->db->where($where1, $wheredata1);
+		$this->db->where($where2, $wheredata2);
+		$this->db->update($namaTabel, $data);
+        
+	}
+
 	public function getTopMenu() {
 		$this->db->select('kodebarang, nama, sum(kuantitas)');
 		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');

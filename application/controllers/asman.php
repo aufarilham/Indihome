@@ -59,10 +59,19 @@ class asman extends CI_Controller {
 	}
         public function insertEA() {
 		$data['title'] = 'Add EA';
-        $data['role'] = $userrole;
+        $data['role'] = $this->userrole();
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('addEA');
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function insertPelanggan() {
+		$data['title'] = 'Add Pelanggan';
+        $data['role'] = $this->userrole();
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('addPelanggan');
 		$this->load->view('asman/headfoot/footer');
 	}
 
@@ -84,15 +93,6 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
-	public function manageUser() {
-		$data['title'] = 'Manage User';
-		$datauser = array(
-			'user'=> $this->Authmin_model->getAllData('user', 'lastLogin', 'DESC'));
-		$this->load->view('asman/headfoot/sider',$data);
-		$this->load->view('asman/headfoot/header');
-		$this->load->view('admin/listuser', $datauser);
-		$this->load->view('asman/headfoot/footer');
-	}
 
 	public function category() {
 		$data['title'] = 'Manage Category';
@@ -184,9 +184,33 @@ class asman extends CI_Controller {
 	}
 
 	
+	public function addPelanggan() {
+		$pelangganID = ($this->input->post('pelangganID'));
+        $nama = ($this->input->post('nama'));
+		$lokasi = ($this->input->post('lokasi'));
+		
+        $datainsert = array(
+				'pelangganID' => $pelangganID,	
+				'nama' => $nama,
+				'lokasi' => $lokasi
+                                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('pelanggan', $datainsert);
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $pelangganID . " berhasil ditambahkan ke Pelanggan.");
+				redirect(''. $this->userrole() .'/managePelanggan');
+			} else {
+				$this->session->set_flashdata('error','Pelanggan gagal ditambahkan, cek kode makanan.');
+				redirect(''. $this->userrole() .'/insertPelanggan');
+			}
+
+	}
+
+	
 	public function addODP() {
 		$odpSPIN = ($this->input->post('odpSPIN'));
-		$odpIDPORT = ($this->input->post('odpSPIN'));
+		$odpIDPORT = ($this->input->post('odpIDPORT'));
 		$kondisi = ($this->input->post('kondisi'));
 		$odpName = ($this->input->post('odpName'));
 		$noModem = ($this->input->post('noModem'));
@@ -249,6 +273,36 @@ class asman extends CI_Controller {
 			} else {
 				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
 				redirect(''. $this->userrole() .'/insertEA');
+			}
+
+	}
+
+	public function addUsers() {
+		$userID = ($this->input->post('userID'));
+        $username = ($this->input->post('username'));
+		$password = ($this->input->post('password'));
+		$role = ($this->input->post('role'));
+
+        
+		
+        $datainsert = array(
+				'xConnectCable' => $xConnectCable,
+				'eqpIP' => $eqpIP,
+				'eqpPORT' => $eqpPORT,
+				'eqpTERM' => $eqpTERM,
+				'created' => $this->Authmin_model->now()
+
+				                
+        );
+			
+			$insert = $this->Authmin_model->InsertData('users', $datainsert);
+            
+			if($insert) {
+				$this->session->set_flashdata('success', ' '. $userID . " berhasil ditambahkan ke Users.");
+				redirect(''. $this->userrole() .'/manageUser');
+			} else {
+				$this->session->set_flashdata('error','EA gagal ditambahkan, cek kode makanan.');
+				redirect(''. $this->userrole() .'/insertUsers');
 			}
 
 	}
@@ -330,6 +384,28 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
+	public function managePelanggan() {
+		$data['title'] = 'Manage Pelanggan';
+        $data['role'] = $this->userrole();
+		$datamenu = array(
+			'pelanggan' => $this->Authmin_model->getAllData('pelanggan', 'pelangganID', 'ASC'));
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('pelanggan', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function manageUsers() {
+		$data['title'] = 'Manage Users';
+        $data['role'] = $this->userrole();
+		$datamenu = array(
+			'users' => $this->Authmin_model->getAllData('users', 'id', 'ASC'));
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('users', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
 	public function manageODC() {
 		$data['title'] = 'Manage ODC';
         $data['role'] = $this->userrole();
@@ -356,12 +432,23 @@ class asman extends CI_Controller {
 		$data['title'] = 'Manage EA';
         $data['role'] = $this->userrole();
 		$datamenu = array(
-			'EA' => $this->Authmin_model->getAllData('ea', 'xConnectCable', 'ASC'),
-            'role'=> 'asman'
+			'EA' => $this->Authmin_model->getAllData('ea', 'xConnectCable', 'ASC')
         );
 		$this->load->view('asman/headfoot/sider',$data);
 		$this->load->view('asman/headfoot/header');
 		$this->load->view('EA', $datamenu);
+		$this->load->view('asman/headfoot/footer');
+	}
+
+	public function manageUser() {
+		$data['title'] = 'Manage Users';
+        $data['role'] = $this->userrole();
+		$datamenu = array(
+			'users' => $this->Authmin_model->getAllData('users', 'userID', 'ASC')
+        );
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('Users', $datamenu);
 		$this->load->view('asman/headfoot/footer');
 	}
 	
@@ -427,9 +514,35 @@ class asman extends CI_Controller {
 		$this->load->view('asman/headfoot/footer');
 	}
 
+	public function showODCkordinat($xConnectODCspin, $xConnectODCspout) {
+		$xConnectODCspin;
+		$xConnectODCspout;
+		$data['title'] = 'ODC MAPS';
+        $data['role'] = $this->userrole();
+		$dataSelMenu= array(
+			'odc' => $this->Authmin_model->getSeltwoData('odc', 'xConnectODCspin', 'xConnectODCspout', $xConnectODCspin, $xConnectODCspout),
+			'title' => 'ODC MAPS');
+			
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('odcMaps', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
 
 
+	public function editPelanggan($id) {
+		$data['title'] = 'Edit Pelanggan';
+        $data['role'] = $this->userrole();
+		$dataSelMenu= array(
+			'pelanggan' => $this->Authmin_model->getSelData('pelanggan', 'pelangganID', $id),
+			'title' => 'Edit Pelanggan');
+		$this->load->view('asman/headfoot/sider',$data);
+		$this->load->view('asman/headfoot/header');
+		$this->load->view('editPelanggan', $dataSelMenu);
+		$this->load->view('asman/headfoot/footer');
+	}
 
+	
 	public function showODCkord($xConnectODCspin, $xConnectODCspout) {
 		$xConnectODCspin;
 		$xConnectODCspout;
@@ -471,6 +584,65 @@ class asman extends CI_Controller {
 			$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
 			redirect(''. $this->userrole() .'/manageOA');
 		} 
+
+		public function updateODC() {
+		$xConnectODCspin = ($this->input->post('xConnectODCspin'));
+        $xConnectODCspout = ($this->input->post('xConnectODCspout'));
+		$odcPORTOUT = ($this->input->post('odcPORTOUT'));
+		$distributionCable = ($this->input->post('distributionCable'));
+        $fileABDODC = ($this->input->post('fileABDODC'));
+		$odpAddress = ($this->input->post('odpAddress'));
+		$odpKordX = ($this->input->post('odpKordX'));
+		$odpKordY = ($this->input->post('odpKordY'));
+		$odpSPIN = ($this->input->post('odpSPIN'));
+		
+        $dataupdate = array(
+				'odcPORTOUT' => $odcPORTOUT,
+				'distributionCable' => $distributionCable,
+				'fileABDODC' => $fileABDODC,
+                'odpAddress' => $odpAddress,
+				'odpKordX' => $odpKordX,
+				'odpKordY' => $odpKordY,
+				'odpSPIN' => $odpSPIN
+                                
+        );
+				$update = $this->Authmin_model->updatetwoData('xConnectODCspin','xConnectODCspout', $xConnectODCspin, $xConnectODCspout, 'odc', $dataupdate);
+				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
+				redirect(''. $this->userrole() .'/manageODC');
+			} 
+
+			public function updateODP() {
+				$odpSPIN = ($this->input->post('odpSPIN'));
+		$odpIDPORT = ($this->input->post('odpIDPORT'));
+		$kondisi = ($this->input->post('kondisi'));
+		$odpName = ($this->input->post('odpName'));
+		$noModem = ($this->input->post('noModem'));
+		$noInternet = ($this->input->post('noInternet'));
+		$noTelepon = ($this->input->post('noTelepon'));
+		$noTelevisi = ($this->input->post('noTelevisi'));
+		$pelangganID = ($this->input->post('pelangganID'));
+		$operationDate = ($this->input->post('operationDate'));
+
+        $dataupdate = array(
+				'odpSPIN' => $odpSPIN,	
+				'odpIDPORT' => $odpIDPORT,
+				'kondisi' => $kondisi,
+				'odpName' => $odpName,
+				'noModem' => $noModem,
+                'noInternet' => $noInternet,
+				'noTelepon' => $noTelepon,
+				'noTelevisi' => $noTelevisi,
+				'pelangganID' => $pelangganID,
+				'operationDate' => $operationDate
+                                
+		);
+				$update = $this->Authmin_model->updatetwoData('odpSPIN','odpIDPORT',$odpSPIN, $odpIDPORT, 'odp', $dataupdate);
+						$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
+						redirect(''. $this->userrole() .'/manageODP');
+					} 	
+		
+
+
 		public function updateEA() {
 			$xConnectCable = ($this->input->post('xConnectCable'));
 			$eqpIP = ($this->input->post('eqpIP'));
@@ -488,7 +660,25 @@ class asman extends CI_Controller {
 				$update = $this->Authmin_model->updateData('xConnectCable', $xConnectCable, 'ea', $dataupdate);
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
 				redirect(''. $this->userrole() .'/manageEA');
-			} 
+			}
+			
+			
+		public function updatePelanggan() {
+			$pelangganID = ($this->input->post('pelangganID'));
+        $nama = ($this->input->post('nama'));
+		$lokasi = ($this->input->post('lokasi'));
+		
+        $dataupdate = array(
+				'pelangganID' => $pelangganID,	
+				'nama' => $nama,
+				'lokasi' => $lokasi
+                                
+        );
+	
+				$update = $this->Authmin_model->updateData('pelangganID', $pelangganID, 'pelanggan', $dataupdate);
+				$this->session->set_flashdata('success', ' '. $pelangganID . " berhasil diupdate.");
+				redirect(''. $this->userrole() .'/managePelanggan');
+			}
 		
 	
 
