@@ -43,35 +43,27 @@ class asman extends CI_Controller {
     public function insertOA() {
 		$data['title'] = 'Add OA';
         $data['role'] = $this->userrole();
-		$data2 = array(
-			'dataEA' => $this->Authmin_model->getAllDataJOIN('ea'));
 		$this->load->view('headfoot/sider',$data);
 		$this->load->view('headfoot/header' ,$data);
-		$this->load->view('addOA', $data2);
+		$this->load->view('addOA');
 		$this->load->view('headfoot/footer');
 	}
 	
 	public function insertODC() {
 		$data['title'] = 'Add ODC';
-		$data['role'] = $this->userrole();
-		$data2 = array(
-			'dataOA' => $this->Authmin_model->getAllDataJOIN('oa'));
+        $data['role'] = $this->userrole();
 		$this->load->view('headfoot/sider',$data);
 		$this->load->view('headfoot/header' ,$data);
-		$this->load->view('addODC', $data2);
+		$this->load->view('addODC');
 		$this->load->view('headfoot/footer');
 	}
 
 	public function insertODP() {
 		$data['title'] = 'Add ODP';
-		$data['role'] = $this->userrole();
-		$data2 = array(
-			'dataODC' => $this->Authmin_model->getAllDataJOIN('odc'),
-			'dataPelanggan' => $this->Authmin_model->getAllDataJOIN('pelanggan')
-		);
+        $data['role'] = $this->userrole();
 		$this->load->view('headfoot/sider',$data);
 		$this->load->view('headfoot/header' ,$data);
-		$this->load->view('addODP', $data2);
+		$this->load->view('addODP');
 		$this->load->view('headfoot/footer');
 	}
         public function insertEA() {
@@ -146,10 +138,9 @@ class asman extends CI_Controller {
 
 	public function addOA() {
 		$xConnectCable = ($this->input->post('xConnectCable'));
-		
         $ospTerm = ($this->input->post('ospTerm'));
 		$feederCable = ($this->input->post('feederCable'));
-		$primaryFiberCable = ($this->input->post('primaryFiberCable'));
+		$primaryFC = ($this->input->post('primaryFC'));
         $fileABDOSP = ($this->input->post('fileABDOSP'));
 		$odcPortIn = ($this->input->post('odcPortIn'));
         $lossCore = ($this->input->post('lossCore'));
@@ -159,13 +150,13 @@ class asman extends CI_Controller {
 				'xConnectCable' => $xConnectCable,
 				'ospTerm' => $ospTerm,
 				'feederCable' => $feederCable,
-				'primaryFiberCable' => $primaryFiberCable,
+				'primaryFiberCable' => $primaryFC,
 				'fileABDOSP' => $fileABDOSP,
                 'odcPortIn' => $odcPortIn,
                 'lossCore' => $lossCore,
                 'xConnectODCspin' => $xConnectODCspin                
-		);
-		
+        );
+			
 			$insert = $this->Authmin_model->InsertData('oa', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
@@ -183,9 +174,9 @@ class asman extends CI_Controller {
 		$odcPORTOUT = ($this->input->post('odcPORTOUT'));
 		$distributionCable = ($this->input->post('distributionCable'));
         $fileABDODC = ($this->input->post('fileABDODC'));
-		$odpAddress = ($this->input->post('odpAddress'));
+		$odpAddress = ($this->input->post('$odpAddress'));
 		$odpKordX = ($this->input->post('odpKordX'));
-		$odpKordY = ($this->input->post('odpKordY'));
+		$odpKordY = ($this->input->post('odpKordy'));
 		$odpSPIN = ($this->input->post('odpSPIN'));
 		
         $datainsert = array(
@@ -199,8 +190,8 @@ class asman extends CI_Controller {
 				'odpKordY' => $odpKordY,
 				'odpSPIN' => $odpSPIN
                                 
-		);
-		
+        );
+			
 			$insert = $this->Authmin_model->InsertData('odc', $datainsert);
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil ditambahkan ke OA.");
@@ -311,6 +302,7 @@ class asman extends CI_Controller {
 	public function addUsers() {
 		$userID = ($this->input->post('userID'));
 		$username = ($this->input->post('username'));
+		
         $email = ($this->input->post('email'));
 		$password = ($this->input->post('password'));
 		$role = ($this->input->post('role'));
@@ -322,13 +314,11 @@ class asman extends CI_Controller {
 				'username' => $username,
 				'email' => $email,
 				'password' => $password,
-				'role' => (int)$role,
+				'role' => $role,
 				'created' => $this->Authmin_model->now()
 
 				                
-		);
-
-		
+        );
 			
 			$insert = $this->Authmin_model->InsertData('users', $datainsert);
             
@@ -637,7 +627,7 @@ class asman extends CI_Controller {
 		$xConnectCable = ($this->input->post('xConnectCable'));
         $ospTerm = ($this->input->post('ospTerm'));
 		$feederCable = ($this->input->post('feederCable'));
-		$primaryFiberCable = ($this->input->post('primaryFiberCable'));
+		$primaryFC = ($this->input->post('primaryFC'));
         $fileABDOSP = ($this->input->post('fileABDOSP'));
 		$odcPortIn = ($this->input->post('odcPortIn'));
         $lossCore = ($this->input->post('lossCore'));
@@ -647,7 +637,7 @@ class asman extends CI_Controller {
 				
 				'ospTerm' => $ospTerm,
 				'feederCable' => $feederCable,
-				'primaryFiberCable' => $primaryFiberCable,
+				'primaryFiberCable' => $primaryFC,
 				'fileABDOSP' => $fileABDOSP,
                 'odcPortIn' => $odcPortIn,
                 'lossCore' => $lossCore,
@@ -698,19 +688,23 @@ class asman extends CI_Controller {
 		$operationDate = ($this->input->post('operationDate'));
 
         $dataupdate = array(
-				
+				'odpSPIN' => $odpSPIN,	
+				'odpIDPORT' => $odpIDPORT,
 				'kondisi' => $kondisi,
 				'odpName' => $odpName,
 				'noModem' => $noModem,
                 'noInternet' => $noInternet,
 				'noTelepon' => $noTelepon,
-				'noTelevisi' => $noTelevisi
+				'noTelevisi' => $noTelevisi,
+				'pelangganID' => $pelangganID,
+				'operationDate' => $operationDate
+                                
 		);
-
 				$update = $this->Authmin_model->updatetwoData('odpSPIN','odpIDPORT',$odpSPIN, $odpIDPORT, 'odp', $dataupdate);
-				$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
-				redirect(base_url(''. $this->userrole() .'/manageODP'));
-			}
+						$this->session->set_flashdata('success', ' '. $xConnectCable . " berhasil diupdate.");
+						redirect(base_url(''. $this->userrole() .'/manageODP'));
+					} 	
+		
 
 
 		public function updateEA() {
@@ -778,16 +772,15 @@ class asman extends CI_Controller {
 		$this->load->view('headfoot/footer');
 	}
 
-	public function download($data){
-		$this->load->helper('url_helper');
-        $dataArray = array(
-            "data"=> $this->Authmin_model->getData($data));        
-           //var_dump($data); die();
-		   $filename ="report" . $data .".xls";
-		   $contents = $this->load->view("xls". $data , $dataArray); 
-		   header('Content-type: application/ms-excel');
-		   header('Content-Disposition: attachment; filename='.$filename);
-		   echo $contents;   
-    }
+	public function tracing() {
+		$data['title'] = 'Tracing';
+		
+		$this->load->view('headfoot/sider',$data);
+		$this->load->view('headfoot/header' ,$data);
+		$this->load->view('tracing' ,$data);
+		$this->load->view('headfoot/footer');
+	}
+
+	
 
 }

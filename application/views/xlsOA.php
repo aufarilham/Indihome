@@ -11,35 +11,27 @@
 
 	<body>
 	
-  		<h2>OA</h2>
+  		<h2>Komentar</h2>
 	<table>
 	<thead >
 			<tr>
-			<th>No</th>
-			<th>xConnectCable</th>
-            <th>ospTerm</th>
-            <th>feederCable</th>
-            <th>primaryFC</th>
-            <th>fileABDOSP</th>
-            <th>odcPortIn</th>
-            <th>lossCore</th>
-            <th>xConnectODCspin</th>
+			<th> ID</th>			
+			<th> Date</th>
+			<th> Nama</th>
+			<th> Web</th>
+			<th> Komentar</th>
 			</tr>
 			</thead>
 			<tbody>
-			<?php $i = 1; ?>
-			<?php foreach ($data as $data2){?>
+			<?php foreach ($comment as $data){?>
                     
 			<tr>
-			<td><?php echo $i++;?></td>
-			 <td><?php echo $data2->xConnectCable;?></td>
-			 <td><?php echo $data2->ospTerm; ?> </td>
-			 <td><?php echo $data2->feederCable;?></td>
-			 <td><?php echo $data2->primaryFC;?></td>
-			 <td><?php echo $data2->fileABDOSP;?></td>
-			 <td><?php echo $data2->odcPortIn;?></td>
-			 <td><?php echo $data2->lossCore;?></td>
-			 <td><?php echo $data2->xConnectODCspin;?></td>
+			 <td><?php echo $data->id;?></td>
+			 <td><?php echo $data->date; ?> </td>
+			 <td><?php echo $data->nama;?></td>
+			 <td><?php echo $data->web;?></td>
+			 <td><?php echo $data->komentar;?></td>
+                   
 			</tr>
 			<?php } ?>
 			</tbody>

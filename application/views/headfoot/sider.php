@@ -61,9 +61,9 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Order">
-          <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/managePelanggan">
+          <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/tracing">
             <i class="fa fa-fw fa-list"></i>
-            <span class="nav-link-text">Tracking</span>
+            <span class="nav-link-text">Tracing Seqment</span>
           </a>
         </li>
           

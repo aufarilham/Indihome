@@ -1,7 +1,11 @@
 <!-- Example DataTables Card-->
-
-<a href="<?php echo base_url() .$role?>/insertOA" class="btn btn-primary" role="button">Add OA</a>
-                <p></p>
+<div class="card-body">
+          <div class="demo-grid" style="padding:1px">
+            <form action="<?php echo base_url()?>asman/insertOA" method="post"  enctype="multipart/form-data"> 
+                <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add OA" /></td>
+    </form>
+    </div>
+</div>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -57,11 +61,7 @@
             </table>
           </div>
         </div>
-
-         </div>
-         <a href="<?php echo base_url() .$role?>/download/OA" class="btn btn-primary" role="button">Download XLS</a>
-                <p></p>
-      
+      </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

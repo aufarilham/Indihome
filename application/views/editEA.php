@@ -1,15 +1,12 @@
-
-<div class="col-sm-12">
-<div class="col-sm-3"> </div>
-<center>
-<div class="col-lg-6">
-                    <div class="card">
-                      <div class="card-header">
-                        <strong>Edit EA</strong>
-                      </div>
-                      <div class="card-body card-block">
-                        <form action="<?php echo base_url()?><?php echo $role .'/UpdateEA'?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                        <?php
+<!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
+        <div class="card-body">
+          <div class="demo-grid" style="padding:20px">
+            <form action="<?php echo base_url()?><?php echo $role .'/updateEA/'?>" method="POST" enctype="multipart/form-data">
+            
+              <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -21,59 +18,49 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-                      
-                    
-                          <div class="row form-group">
-                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $ea[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpIP</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required value="<?php echo $ea[0]->eqpIP ?>" id="hf-email" name="eqpIP" placeholder="" class="form-control"></div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpPORT</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $ea[0]->eqpPORT ?>" id="hf-email" name="eqpPORT" placeholder="" class="form-control"></div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpTERM</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $ea[0]->eqpTERM ?>" id="hf-email" name="eqpTERM" placeholder="" class="form-control"></div>
-                          </div>
-                          
-                        
-                      </div>
-                      <div class="card-footer">
-                        <button type="submit" name="submit" class="btn btn-primary btn-sm btn-block">
-                          <i class="fa fa-dot-circle-o"></i> Update
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-      
-  
+              <table style="font-size: 14px" width="100%">
+              <tr>
+                 <td style="padding: 5px">xConnectCable</td>
+                  <td style="padding: 5px"><input value="<?php echo $ea[0]->xConnectCable ?>" class="form-control" type="text" name="xConnectCable" required readonly /></td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px">eqpIP</td>
+                  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpIP ?>" class="form-control" type="text" name="eqpIP" required/></td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px">eqpPORT</td>
+                  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpPORT ?>" class="form-control" type="text" name="eqpPORT" required/></td>
+                </tr>
+                <tr>
+                  <td style="padding: 5px">eqpTERM</td>
+				  <td style="padding: 5px"><input value="<?php echo $ea[0]->eqpTERM ?>" class="form-control" type="text" name="eqpTERM" required/></td>
+                </tr>
                   
-
-
+				
+                <tr style="padding: 5px">
+                  <td></td>
+                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Update EA" /></td>
+                </tr>
+              </table>
+            </form>
           </div>
-          </center>
       </div>
         </div>
       </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Baleni 2017</small>
-        </div>
-      </div>
-    </footer>
+    
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
 
+	<script>
+  $(document).ready(function(){
+    $('#tabel-data').DataTable();
+});
+  </script>
     <script type="text/javascript">
     function previewImage() {
       document.getElementById("image-preview").style.display = "block";
@@ -84,5 +71,3 @@
       };
     };
     </script>
-
-<!-- Example DataTables Card-->
