@@ -1,12 +1,14 @@
-<!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
-        <div class="card-body">
-          <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role; ?>/addOA" method="POST" enctype="multipart/form-data">
-
-              <?php
+<div class="col-sm-12">
+<div class="col-sm-3"> </div>
+<center>
+<div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Add OA</strong>
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="<?php echo base_url()?><?php echo $role .'/addOA'?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                        <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -18,49 +20,66 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-              <table style="font-size: 12px" width="100%">
-              
-                <tr>
-                  <td style="padding: 5px">xConnectCable</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectCable" placeholder="" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">ospTerm</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="ospTerm" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">feederCable</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="feederCable" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">primaryFC</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="primaryFC" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">fileABDOSP</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="fileABDOSP" placeholder="" required/></td>
-                </tr>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="select" class=" form-control-label">xConnectCable</label></div>
+                            <div class="col-12 col-md-8">
 
-                  <tr>
-                  <td style="padding: 5px">odcPortIn</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="odcPortIn" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">lossCore</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="lossCore" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">xConnectODCspin</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectODCspin" placeholder="" required/></td>
-                </tr>
+                              <select name="xConnectCable" id="select" class="form-control">
+                              <?php if(!empty($dataEA)) {foreach ($dataEA as $m) { ?>
                 
-                <tr style="padding: 5px">
-                  <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add OA" /></td>
-                </tr>
-              </table>
-            </form>
+                              
+                              <option value="<?php echo $m['xConnectCable']; ?>"><?php echo $m['xConnectCable']; ?></option>
+                              <?php }
+              }?>
+                              </select>
+                            </div>
+                          </div>
+                    
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">ospTerm</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="ospTerm" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">feederCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="feederCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">primaryFiberCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="primaryFiberCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">fileABDOSP</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="fileABDOSP" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odcPortIn</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="odcPortIn" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">lossCore</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="lossCore" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectODCspin</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="xConnectODCspin" placeholder="" class="form-control"></div>
+                          </div>
+                          
+                        
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" name="submit" class="btn btn-primary btn-sm btn-block">
+                          <i class="fa fa-dot-circle-o"></i> Add
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+      
+  
+                  
+
+
           </div>
+          </center>
       </div>
         </div>
       </div>

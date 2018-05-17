@@ -43,14 +43,13 @@ class Auth extends CI_Controller {
                     redirect(base_url('staff'));
                 }  
 				else {
-                redirect(base_url('Home'));
+					redirect(base_url(('Home')));
             }
 			
 			
 		} else {
-			$data['title'] = 'Baleni Admin Portal';
-			$data['error'] = 'Email dan Password salah!';
-			$this->load->view('admin/login', $data);
+			$this->session->set_flashdata('error','Pelanggan gagal ditambahkan, cek kode makanan.');
+			redirect(base_url(('Home')));
 		}
 	}
 
@@ -60,14 +59,7 @@ class Auth extends CI_Controller {
 		redirect(base_url(('Home')));
 	}
 
-	public function login() {
-		$data['title'] = 'Baleni Admin Portal';
-		if($this->session->userdata('loggedin')) {
-			redirect('admin/Dashboard');
-		} else {
-			$this->load->view('admin/login', $data);
-		}
-	}
+
 
 	public function ubahpass($username) {
 		$this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');

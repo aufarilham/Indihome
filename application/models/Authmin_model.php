@@ -96,6 +96,133 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+	public function reportEA(){		
+		$query = $this->db->query("SELECT MONTH(created) AS bulan, COUNT(*) AS nilai
+		FROM ea
+		GROUP BY MONTH(created);"); 
+		 if($query->num_rows() > 0){
+		   foreach($query->result() as $data){
+			   $hasil[] = $data;
+		   }
+
+		}
+
+
+
+		   return $hasil;
+   
+   }
+   
+	public function reportOA(){
+		$query = $this->db->query("SELECT MONTH(created) AS bulan, COUNT(*) AS nilai
+		FROM oa
+		GROUP BY MONTH(created);"); 
+	   if($query->num_rows() > 0){
+		   foreach($query->result() as $data){
+			   $hasil[] = $data;
+		   }
+		   return $hasil;
+   }
+   }
+   public function reportODP(){
+	$query = $this->db->query("SELECT MONTH(created) AS bulan, COUNT(*) AS nilai
+	FROM odp
+	GROUP BY MONTH(created);"); 
+   if($query->num_rows() > 0){
+	   foreach($query->result() as $data){
+		   $hasil[] = $data;
+	   }
+	   return $hasil;
+}
+   }
+public function reportODC(){
+	$query = $this->db->query("SELECT MONTH(created) AS bulan, COUNT(*) AS nilai
+	FROM odc
+	GROUP BY MONTH(created);"); 
+   if($query->num_rows() > 0){
+	   foreach($query->result() as $data){
+		   $hasil[] = $data;
+	   }
+	   return $hasil;
+}}
+public function reportPelanggan(){
+	$query = $this->db->query("SELECT MONTH(created) AS bulan, COUNT(*) AS nilai
+	FROM pelanggan
+	GROUP BY MONTH(created);"); 
+   if($query->num_rows() > 0){
+	   foreach($query->result() as $data){
+		   $hasil[] = $data;
+	   }
+	   return $hasil;
+}}
+
+
+
+	public function getAllDataJOIN($cable) {
+
+		if($cable == 'ea'){
+			$query =$this->db->query('Select ea.xConnectCable from ea left join oa on ea.xConnectCable = oa.xConnectCable where oa.xConnectCable is null ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}	
+		}
+
+		if($cable == 'oa'){
+			$query =$this->db->query('Select oa.xConnectODCspin, count(odc.xConnectODCspin) from oa left join odc on oa.xConnectODCspin = odc.xConnectODCspin  GROUP BY (oa.xConnectODCspin) HAVING count(odc.xConnectODCspin) < 4 ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			}
+
+		if($cable == 'odc'){
+			$query =$this->db->query('Select odc.odpSPIN, count(odp.odpSPIN) from odc left join odp on odc.odpSPIN = odp.odpSPIN  GROUP BY (odc.odpSPIN) HAVING count(odp.odpSPIN) < 8 ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			
+		}
+
+		if($cable == 'pelanggan'){
+			$query =$this->db->query('Select pelanggan.pelangganID from pelanggan left join odp on pelanggan.pelangganID = odp.pelangganID where odp.pelangganID IS NULL ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			
+		}
+	}
+
+	public function search($search) {
+		$this->db->select('pelanggan.nama, pelanggan.lokasi, odp.operationDate , odp.odpIDPORT, odp.kondisi, odp. odpName, odp.noModem, odp.noInternet, odp.noTelepon, odp.noTelevisi, odc.xConnectODCspin, odc.xConnectODCspout, odc.odcPORTOUT, odc.distributionCable, odc.fileABDODC, odc.odpAddress, odc.odpKordX, odc.odpKordY, oa.xConnectCable, oa.ospTerm, oa.feederCable , odc.fileABDODC , oa.primaryFiberCable, oa.primaryFiberCable, oa.fileABDOSP, oa.odcPORTIN, oa.lossCore, ea.eqpIP, ea.eqpPORT, ea.eqpTERM');
+		$this->db->join('odp','pelanggan.pelangganID = odp.pelangganID');
+		$this->db->join('odc', 'odp.odpSPIN = odc.odpSPIN');
+		$this->db->join('oa', 'odc.xConnectODCspin = oa.xConnectODCspin');
+		$this->db->join('ea', 'oa.xConnectCable = ea.xConnectCable');
+		$this->db->where('pelanggan.pelangganID', $search);
+		$this->db->from('pelanggan');
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 1) {
+			
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+
 	public function getData($namaTabel) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);
@@ -132,6 +259,7 @@ class Authmin_model extends CI_Model {
 		$this->db->where($where1, $datawhere1);
 		$this->db->where($where2, $datawhere2);
 		$query = $this->db->get();
+		var_dump($query); exit;
 		
 		if ($query->num_rows() == 1) {
 			return $query->result();

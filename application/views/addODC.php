@@ -1,12 +1,14 @@
-<!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
-        <div class="card-body">
-          <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role; ?>/addODC" method="POST" enctype="multipart/form-data">
-
-              <?php
+<div class="col-sm-12">
+<div class="col-sm-3"> </div>
+<center>
+<div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Add ODC</strong>
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="<?php echo base_url()?><?php echo $role .'/addODC'?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                        <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -18,53 +20,74 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-              <table style="font-size: 12px" width="100%">
-              
-                <tr>
-                  <td style="padding: 5px">xConnectODCspin</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectODCspin" placeholder="" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">xConnectODCspout</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectODCspout" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">odcPORTOUT</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="odcPORTOUT" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">distributionCable</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="distributionCable" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">fileABDODC</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="fileABDODC" placeholder="" required/></td>
-                </tr>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="select" class=" form-control-label">xConnectCable</label></div>
+                            <div class="col-12 col-md-8">
 
-                  <tr>
-                  <td style="padding: 5px">odpAddress</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="odpAddress" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">odpKordX</td>
-                  <td style="padding: 5px"><input class="form-control" id="x" type="text" name="odpKordX" placeholder="" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">odpKordY</td>
-                  <td style="padding: 5px"><input class="form-control" id="y" type="text" name="odpKordY" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">odpSPIN</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="odpSPIN" placeholder="" required/></td>
-                </tr>
+                              <select name="xConnectODCspin" id="select" class="form-control">
+                              <?php if(!empty($dataOA)) {foreach ($dataOA as $m) { ?>
                 
-                <tr style="padding: 5px">
-                  <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="button" onclick="getLocation()" value="get Kordinat" /><input class="btn btn-primary" type="submit" name="submit" value="Add ODC" /></td>
-                </tr>
-              </table>
-            </form>
+                              
+                              <option value="<?php echo $m['xConnectODCspin']; ?>"><?php echo $m['xConnectODCspin']; ?></option>
+                              <?php }
+              }?>
+                              </select>
+                            </div>
+                          </div>
+                    
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectODCspout</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectODCspout" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odcPORTOUT</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="odcPORTOUT" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">distributionCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="distributionCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">fileABDODC</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="fileABDODC" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpAddress</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="odpAddress" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpKordX</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="x" name="odpKordX" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpKordY</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="y" name="odpKordY" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpSPIN</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="odpSPIN" placeholder="" class="form-control"></div>
+                          </div>
+                          
+                        
+                      </div>
+                      <div class="card-footer">
+
+                      <button type="button" onclick="getLocation()" class="btn btn-primary btn-sm btn-block">
+                          <i class="fa fa-dot-circle-o"></i> Get Kordinat
+                        </button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-sm btn-block">
+                          <i class="fa fa-dot-circle-o"></i> Add
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+      
+  
+                  
+
+
           </div>
+          </center>
       </div>
         </div>
       </div>
@@ -92,8 +115,8 @@
         document.getElementById("image-preview").src = oFREvent.target.result;
       };
     };
-
-    function getLocation() {
+	
+	function getLocation() {
     
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);

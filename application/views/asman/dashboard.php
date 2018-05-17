@@ -1,3 +1,4 @@
+
      <!-- Icon Cards-->
        <div class="row">
 
@@ -77,45 +78,141 @@
           </div>
         </div>
 
-      </div>
+        <?php
+    /* Mengambil query report*/
+    foreach($ea as $result){
+        $bulanEA = array(
+                '1' => 'Januari',
+                '2' => 'Februari',
+                '3' => 'Maret',
+                '4' => 'April',
+                '5' => 'Mei',
+                '6' => 'Juni',
+                '7' => 'Juli',
+                '8' => 'Agustus',
+                '9' => 'September',
+                '10' => 'Oktober',
+                '11' => 'November',
+                '12' => 'Desember',
+        );
+        foreach($oa as $result2){
+          $bulanOA = array(
+                  '1' => 'Januari',
+                  '2' => 'Februari',
+                  '3' => 'Maret',
+                  '4' => 'April',
+                  '5' => 'Mei',
+                  '6' => 'Juni',
+                  '7' => 'Juli',
+                  '8' => 'Agustus',
+                  '9' => 'September',
+                  '10' => 'Oktober',
+                  '11' => 'November',
+                  '12' => 'Desember',
+          );
 
-      <div class="row mb40">
-      <div class="col-md-12 chit-chat-layer1-left">
-               <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                 <div class="card-header"><i class="fa fa-coffee"></i> Roles </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                  <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Role</th>
-                                            
-                                            
-											
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-									 <?php foreach ($role as $data){?>
-									 
-                                        <tr>
-                                            <td><?php echo $data->id;?></td>
-                                            <td><?php echo $data->role_name;?></td>
-                                            
-                                            
-											
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                      </table>
-                  </div>
-             </div>
-      </div>
+		
+		$bulan[] = $bulanEA[$result->bulan]; //ambil bulan
+    $value[] = (float) $result->nilai; //ambil nilai
+		$value2[] = (float) ($result2->nilai2); //ambil nilai
+    }
+    /* end mengambil query*/
+     
+?>
 
+        <div id = "report">
+        </div>
+
+<script type="text/javascript">
+$(function () {
+    $('#report').highcharts({
+        chart: {
+            type: 'line',
+            margin: 75,
+            options3d: {
+                enabled: false,
+                alpha: 10,
+                beta: 25,
+                depth: 70
+            }
+        },
+        title: {
+            text: 'Statistik Jumlah Komentar',
+            style: {
+                    fontSize: '18px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        subtitle: {
+           text: 'per Bulan',
+           style: {
+                    fontSize: '15px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories:  <?php echo json_encode($bulan);?>
+        },
+        exporting: { 
+            enabled: false 
+        },
+        yAxis: {
+            title: {
+                text: 'Jumlah'
+            },
+        },
+        tooltip: {
+             formatter: function() {
+                 return 'Nilai untuk Bulan <b>' + this.x + '</b> adalah <b>' + Highcharts.numberFormat(this.y,0) + '</b>, di '+ this.series.name;
+             }
+          },
+        series: [{
+            name: 'Statistik Data',
+            data: <?php echo json_encode($value);?>,
+            shadow : true,
+            dataLabels: {
+                enabled: true,
+                color: '#123456',
+                align: 'center',
+                formatter: function() {
+                     return Highcharts.numberFormat(this.y, 0);
+                }, // one decimal
+                y: 0, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }, 
+		{
+            name: 'Statistik Data2',
+            data: <?php echo json_encode($value2);?>,
+            shadow : true,
+            dataLabels: {
+                enabled: true,
+                color: '#211456',
+                align: 'center',
+                formatter: function() {
+                     return Highcharts.numberFormat(this.y, 0);
+                }, // one decimal
+                y: 0, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }
+		]
+    });
+});
+        </script>
       
-             
-      </div>
-    </div>
-
 
