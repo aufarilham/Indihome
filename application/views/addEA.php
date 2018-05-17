@@ -1,12 +1,14 @@
-<!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
-        <div class="card-body">
-          <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role; ?>/addEA" method="POST" enctype="multipart/form-data">
-
-              <?php
+<div class="col-sm-12">
+<div class="col-sm-3"> </div>
+<center>
+<div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Add EA</strong>
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="<?php echo base_url()?><?php echo $role .'/addEA'?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                        <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -18,32 +20,41 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-              <table style="font-size: 12px" width="100%">
-              
-                  <tr>
-                  <td style="padding: 5px">xConnectCable</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="xConnectCable" placeholder="" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">eqpIP</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpIP" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">eqpPORT</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpPORT" placeholder="" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">eqpTERM</td>
-                  <td style="padding: 5px"><input class="form-control" type="text" name="eqpTERM" placeholder="" required/></td>
-                </tr>
+                      
+                    
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpIP</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="eqpIP" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpPORT</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="eqpPORT" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpTERM</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="eqpTERM" placeholder="" class="form-control"></div>
+                          </div>
+                          
+                        
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" name="submit" class="btn btn-primary btn-sm btn-block">
+                          <i class="fa fa-dot-circle-o"></i> Add
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+      
+  
                   
-                <tr style="padding: 5px">
-                  <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Add EA" /></td>
-                </tr>
-              </table>
-            </form>
+
+
           </div>
+          </center>
       </div>
         </div>
       </div>

@@ -96,6 +96,52 @@ class Authmin_model extends CI_Model {
 		}
 	}
 
+	public function getAllDataJOIN($cable) {
+
+		if($cable == 'ea'){
+			$query =$this->db->query('Select ea.xConnectCable from ea left join oa on ea.xConnectCable = oa.xConnectCable where oa.xConnectCable is null ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}	
+		}
+
+		if($cable == 'oa'){
+			$query =$this->db->query('Select oa.xConnectODCspin, count(odc.xConnectODCspin) from oa left join odc on oa.xConnectODCspin = odc.xConnectODCspin  GROUP BY (oa.xConnectODCspin) HAVING count(odc.xConnectODCspin) < 4 ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			}
+
+		if($cable == 'odc'){
+			$query =$this->db->query('Select odc.odpSPIN, count(odp.odpSPIN) from odc left join odp on odc.odpSPIN = odp.odpSPIN  GROUP BY (odc.odpSPIN) HAVING count(odp.odpSPIN) < 8 ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			
+		}
+
+		if($cable == 'pelanggan'){
+			$query =$this->db->query('Select pelanggan.pelangganID from pelanggan left join odp on pelanggan.pelangganID = odp.pelangganID where odp.pelangganID IS NULL ');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return false;
+			}
+			
+		}
+	}
+
+
 	public function getData($namaTabel) {
 		$this->db->select('*');
 		$this->db->from($namaTabel);

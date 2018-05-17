@@ -1,12 +1,14 @@
-<!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-coffee"></i>   <?php echo $title; ?></div>
-        <div class="card-body">
-          <div class="demo-grid" style="padding:20px">
-            <form action="<?php echo base_url()?><?php echo $role .'/updateOA/'?>" method="POST" enctype="multipart/form-data">
-
-              <?php
+<div class="col-sm-12">
+<div class="col-sm-3"> </div>
+<center>
+<div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <strong>Edit OA</strong>
+                      </div>
+                      <div class="card-body card-block">
+                        <form action="<?php echo base_url()?><?php echo $role .'/updateOA'?>" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                        <?php
               if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -18,63 +20,76 @@
                 <strong>Waduh!</strong> '.$this->session->flashdata('error').'.
               </div>';
             } ?>
-              <table style="font-size: 14px" width="100%">
-              <tr>
-                 <td style="padding: 5px">xConnectCable</td>
-                  <td style="padding: 5px"><input value="<?php echo $oa[0]->xConnectCable ?>" class="form-control" type="text" name="xConnectCable" required readonly /></td>
-                </tr>
-                  <tr>
-                 <td style="padding: 5px">ospTerm</td>
-                  <td style="padding: 5px"><input value="<?php echo $oa[0]->ospTerm ?>" class="form-control" type="text" name="ospTerm" required readonly /></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">Feeder Cable</td>
-                  <td style="padding: 5px"><input value="<?php echo $oa[0]->feederCable ?>" class="form-control" type="text" name="feederCable" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">Primary FC</td>
-                  <td style="padding: 5px"><input value="<?php echo $oa[0]->primaryFiberCable ?>" class="form-control" type="text" name="primaryFC" required/></td>
-                </tr>
-                <tr>
-                  <td style="padding: 5px">fileABDOSP</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->fileABDOSP ?>" class="form-control" type="text" name="fileABDOSP" required/></td>
-                </tr>
-                  <tr>
-                  <td style="padding: 5px">ODC Port In</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->odcPORTIN ?>" class="form-control" type="text" name="odcPortIn" required/></td>
-				</tr>
-                  <tr>
-                  <td style="padding: 5px">loss Core</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->lossCore ?>" class="form-control" type="text" name="lossCore" required/></td></tr>
-				<tr>
-                  <td style="padding: 5px">xConnectODCspin</td>
-				  <td style="padding: 5px"><input value="<?php echo $oa[0]->xConnectODCspin ?>" class="form-control" type="text" name="xConnectODCspin" required/></td>
-				</tr>
-				
-                <tr style="padding: 5px">
-                  <td></td>
-                  <td style="padding: 5px" colspan="1"><input class="btn btn-primary" type="submit" name="submit" value="Update OA" /></td>
-                </tr>
-              </table>
-            </form>
+                         
+                    
+                         <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $oa[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
+                          </div>
+                          
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">ospTerm</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $oa[0]->ospTerm ?>" id="hf-email" name="ospTerm" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">feederCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required value="<?php echo $oa[0]->feederCable ?>" id="hf-email" name="feederCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">primaryFiberCable</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->primaryFiberCable ?>" id="hf-email" name="primaryFiberCable" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">fileABDOSP</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->fileABDOSP ?>" id="hf-email" name="fileABDOSP" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odcPortIn</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->odcPORTIN ?>"  id="hf-email" name="odcPortIn" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">lossCore</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" required value="<?php echo $oa[0]->lossCore ?>"  name="lossCore" placeholder="" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectODCspin</label></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" required value="<?php echo $oa[0]->xConnectODCspin ?>" name="xConnectODCspin" placeholder="" class="form-control"></div>
+                          </div>
+                          
+                        
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" name="submit" class="btn btn-primary btn-sm btn-block">
+                          <i class="fa fa-dot-circle-o"></i> Update
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+      
+  
+                  
+
+
           </div>
+          </center>
       </div>
         </div>
       </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Baleni 2017</small>
+        </div>
+      </div>
+    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
 
-	<script>
-  $(document).ready(function(){
-    $('#tabel-data').DataTable();
-});
-  </script>
     <script type="text/javascript">
     function previewImage() {
       document.getElementById("image-preview").style.display = "block";

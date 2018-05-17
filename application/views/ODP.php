@@ -1,11 +1,7 @@
 <!-- Example DataTables Card-->
-<div class="card-body">
-          <div class="demo-grid" style="padding:1px">
-            <form action="<?php echo base_url().$role ?>/insertODP" method="post"  enctype="multipart/form-data"> 
-                <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add ODP" /></td>
-    </form>
-    </div>
-</div>
+<a href="<?php echo base_url() .$role?>/insertODP" class="btn btn-primary" role="button">Add ODP</a>
+                <p></p>
+
 
       <div class="card mb-3">
         <div class="card-header">
@@ -65,6 +61,8 @@
           </div>
         </div>
       </div>
+      <a href="<?php echo base_url() .$role?>/download/ODP" class="btn btn-primary" role="button">Download XLS</a>
+                <p></p>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

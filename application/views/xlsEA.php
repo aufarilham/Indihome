@@ -11,19 +11,16 @@
 
 	<body>
 	
-  		<h2>OA</h2>
+  		<h2>EA</h2>
 	<table>
 	<thead >
 			<tr>
 			<th>No</th>
 			<th>xConnectCable</th>
-            <th>ospTerm</th>
-            <th>feederCable</th>
-            <th>primaryFC</th>
-            <th>fileABDOSP</th>
-            <th>odcPortIn</th>
-            <th>lossCore</th>
-            <th>xConnectODCspin</th>
+            <th>eqpIP</th>
+            <th>eqpPORT</th>
+            <th>eqpTERM</th>
+            
 			</tr>
 			</thead>
 			<tbody>
@@ -33,13 +30,9 @@
 			<tr>
 			<td><?php echo $i++;?></td>
 			 <td><?php echo $data2->xConnectCable;?></td>
-			 <td><?php echo $data2->ospTerm; ?> </td>
-			 <td><?php echo $data2->feederCable;?></td>
-			 <td><?php echo $data2->primaryFC;?></td>
-			 <td><?php echo $data2->fileABDOSP;?></td>
-			 <td><?php echo $data2->odcPortIn;?></td>
-			 <td><?php echo $data2->lossCore;?></td>
-			 <td><?php echo $data2->xConnectODCspin;?></td>
+			 <td><?php echo $data2->eqpIP; ?> </td>
+			 <td><?php echo $data2->eqpPORT;?></td>
+			 <td><?php echo $data2->eqpTERM;?></td>
 			</tr>
 			<?php } ?>
 			</tbody>
