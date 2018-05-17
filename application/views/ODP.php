@@ -1,7 +1,10 @@
 <!-- Example DataTables Card-->
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
+
+   <?php if($roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
 <a href="<?php echo base_url() .$role?>/insertODP" class="btn btn-primary" role="button">Add ODP</a>
                 <p></p>
-
+                <?php }?>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -28,7 +31,9 @@
                     <th>noTelevisi</th>
                     <th>pelangganID</th>
                     <th>operationDate</th>
+                    <?php if($roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
 				  <th>action</th>
+          <?php }?>
                 </tr>
               </thead>
               <tbody>
@@ -46,13 +51,14 @@
                     <td><?php echo $m['noTelevisi']; ?></td>
                     <td><?php echo $m['pelangganID']; ?></td>
                     <td><?php echo $m['operationDate']; ?></td>				  
-				  
+                    <?php if($roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
                     <td>
                     <p><a href="<?php echo base_url().$role.'/editODP/'.$m['odpSPIN'].'/'.$m['odpIDPORT'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a><br>
                     
                      <a href="<?php echo base_url().$role.'/deleteODP/'.$m['odpSPIN'].'/'.$m['odpIDPORT'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                      
                   </td>
+                  <?php }?>
                 </tr>
                 <?php }
               }?>
@@ -61,8 +67,10 @@
           </div>
         </div>
       </div>
+      <?php if($roles == 2 or $roles == 1 ) {?>
       <a href="<?php echo base_url() .$role?>/download/ODP" class="btn btn-primary" role="button">Download XLS</a>
                 <p></p>
+                <?php }?>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

@@ -296,7 +296,6 @@ class supervisor extends CI_Controller {
 
 
 
-
 	
 	public function showODCkord($xConnectODCspin, $xConnectODCspout) {
 		$xConnectODCspin;
@@ -368,5 +367,6 @@ class supervisor extends CI_Controller {
 			}
 
 
+	
 
 }

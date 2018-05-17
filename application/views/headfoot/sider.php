@@ -10,12 +10,12 @@
   <title><?php echo $title; ?></title>
   <!-- Bootstrap core CSS-->
   <link href="<?php echo base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css?version=<?php echo filemtime('bootstrap.min.css'); ?>" rel="stylesheet">
+<link href="<?php echo base_url()?>assets/css/sb-admin.css?version=<?php echo filemtime('sb-admin.css'); ?>" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()?>assets/vendor/font-awesome/css/font-awesome.min.css?version=<?php echo filemtime('font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="<?php echo base_url()?>assets/vendor/datatables/dataTables.bootstrap4.css?version=<?php echo filemtime('dataTables.bootstrap4.css'); ?>" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="<?php echo base_url()?>assets/css/sb-admin.css" rel="stylesheet">
   
   
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/DataTables/datatables.min.css"/>
@@ -25,8 +25,10 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #c90000;" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000000;" id="mainNav">
     <img src="<?php echo base_url()?>assets/images/Indihome_Fiber2.png" style="max-width: 90px; margin-right: 20px">
     <a class="navbar-brand" href="<?php echo base_url()?><?php echo $role; ?>">Dashboard</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +42,7 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+        <?php if($roles == 1 or $roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Cable">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-coffee"></i>
@@ -60,29 +63,33 @@
             </li>
           </ul>
         </li>
+        <?php } ?>
+        <?php if($roles != 6 ) {?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Order">
           <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/tracing">
             <i class="fa fa-fw fa-list"></i>
             <span class="nav-link-text">Tracing Seqment</span>
           </a>
         </li>
-          
+        <?php } ?>
+        <?php if($roles == 1 or $roles == 2 ) {?>
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage User">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Manage User</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <?php if($this->session->userdata('loggedin')['role'] == '2') {?>
             <li>
               <a href="<?php echo base_url()?><?php echo $role; ?>/manageRole">Role</a>
             </li>
             <li>
               <a href="<?php echo base_url()?><?php echo $role; ?>/manageUser">User</a>
             </li>
-            <?php } ?>
+            
           </ul>
         </li>
+        <?php } ?>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage Order">
           <a class="nav-link" href="<?php echo base_url()?><?php echo $role; ?>/managePelanggan">
             <i class="fa fa-fw fa-list"></i>

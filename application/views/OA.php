@@ -1,7 +1,9 @@
 <!-- Example DataTables Card-->
-
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
+<?php if($roles == 2 ) {?>
 <a href="<?php echo base_url() .$role?>/insertOA" class="btn btn-primary" role="button">Add OA</a>
                 <p></p>
+<?php }?>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -28,7 +30,9 @@
                     <th>odcPortIn</th>
                     <th>lossCore</th>
                     <th>xConnectODCspin</th>
+                    <?php if($roles == 2 ) {?>
 				  <th>action</th>
+          <?php }?>
                 </tr>
               </thead>
               <tbody>
@@ -44,12 +48,14 @@
 				  <td><?php echo $m['odcPORTIN']; ?></td>
                     <td><?php echo $m['lossCore']; ?></td>
                     <td><?php echo $m['xConnectODCspin']; ?></td>
-				  
+                    <?php if($roles == 2 ) {?>
 				  
                   <td>
-                    <p><a href="<?php echo base_url().$role.'/editOA/'.$m['xConnectCable'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <p><a href="<?php echo base_url().$role.'/editOA/'.$m['xConnectCable'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a> <br>
                      <a href="<?php echo base_url().$role.'/deleteOA/'.$m['xConnectCable'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                   </td>
+                  <?php }?>
+
                 </tr>
                 <?php }
               }?>
@@ -59,9 +65,11 @@
         </div>
 
          </div>
-         <a href="<?php echo base_url() .$role?>/download/OA" class="btn btn-primary" role="button">Download XLS</a>
+
+<?php if($roles == 1 or $roles == 2 ) {?>
+				           <a href="<?php echo base_url() .$role?>/download/OA" class="btn btn-primary" role="button">Download XLS</a>
                 <p></p>
-      
+                <?php }?>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

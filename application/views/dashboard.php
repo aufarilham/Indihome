@@ -21,6 +21,7 @@
 	
      <!-- Icon Cards-->
 
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
 <?php
 /* Mengambil query report*/
 foreach($ea as $result){
@@ -104,7 +105,8 @@ foreach($oa as $result){
               } ?> OA Terpasang
       </div>
     </div>
-    <a class="card-footer text-white clearfix small z-1" href="<?php base_url()?><?php echo $role .'/manageOA'?>">
+   
+            <a class="card-footer text-white clearfix small z-1" href="<?php if($roles != 6 ) {?><?php base_url()?><?php echo $role .'/manageOA'?><?php }?>">
       <span class="float-left">View Details</span>
       <span class="float-right">
         <i class="fa fa-angle-right"></i>
@@ -120,15 +122,15 @@ foreach($oa as $result){
         <i class="fa fa-fw fa-list"></i>
       </div>
       <div class="mr-5">
-      <?php $num1 = $this->db->count_all_results('ODP');
+      <?php $num1 = $this->db->count_all_results('ODC');
               if(empty($num1)) {
                 echo '0';
               } else {
                 echo $num1;
-              } ?> ODP Terpasang
+              } ?> ODC Terpasang
       </div>
     </div>
-    <a class="card-footer text-white clearfix small z-1" href="<?php base_url()?><?php echo $role .'/manageODP'?>">
+    <a class="card-footer text-white clearfix small z-1" href="<?php if($roles != 6 ) {?><?php base_url()?><?php echo $role .'/manageDC'?><?php }?>">
       <span class="float-left">View Details</span>
       <span class="float-right">
         <i class="fa fa-angle-right"></i>
@@ -142,18 +144,18 @@ foreach($oa as $result){
   <div class="card text-white bg-warning o-hidden h-100">
     <div class="card-body">
       <div class="card-body-icon">
-        <i class="fa fa-fw fa-user"></i>
+        <i class="fa fa-fw fa-list"></i>
       </div>
       <div class="mr-5">
-      <?php $num1 = $this->db->count_all_results('OA');
+      <?php $num1 = $this->db->count_all_results('ODP');
               if(empty($num1)) {
                 echo '0';
               } else {
                 echo $num1;
-              } ?> OA Terpasang
+              } ?> ODP Terpasang
       </div>
     </div>
-    <a class="card-footer text-white clearfix small z-1" href="<?php base_url()?><?php echo $role .'/manageOA'?>">
+    <a class="card-footer text-white clearfix small z-1" href="<?php if($roles != 6 ) {?><?php base_url()?><?php echo $role .'/manageODP'?><?php }?>"">
       <span class="float-left">View Details</span>
       <span class="float-right">
         <i class="fa fa-angle-right"></i>
@@ -263,7 +265,7 @@ tooltip: {
      }
   },
 series: [{
-    name: 'Statistik Data',
+    name: 'Pelanggan',
     data: <?php echo json_encode($valuePelanggan);?>,
     shadow : true,
     dataLabels: {

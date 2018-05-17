@@ -28,15 +28,10 @@
                             <td style="padding: 5px"><?php echo $this->session->userdata('loggedin')['email']?></td>
                           </tr>
                           <tr>
-                            <td style="padding: 5px">My Role</td>
+                            <td style="padding: 5px">Role</td>
                             <td style="padding: 5px">
-                              <?php if($this->session->userdata('loggedin')['role'] == 1) {
-                                echo 'Super Mimin';
-                              } else {
-                                echo 'Mimin';
-                              }
-                                ?>
-                            </td>
+                            <?php echo $role?>
+                                                        </td>
                           </tr>
                           <tr>
                             <td style="padding: 5px">Created on</td>
@@ -57,7 +52,7 @@
                                  <div class="card-header"><i class="fa fa-user-secret"></i> Change Password </div>
                             </div>
                             <div class="table-responsive">
-                        <form method="POST" action="<?php echo site_url('admin/Auth/ubahpass/' . $this->session->userdata('loggedin')['username']) ?>" enctype="multipart/form-data">
+                        <form method="POST" action="<?php echo site_url( $role .'/ubahpass/' . $this->session->userdata('loggedin')['username']) ?>" enctype="multipart/form-data">
                         <table style="font-size: 12px" width="100%">
                           <tr>
                             <td style="padding: 5px">Old Password</td>

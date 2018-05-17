@@ -1,8 +1,10 @@
 <!-- Example DataTables Card-->
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
+<?php if($roles == 2 ) {?>
 <a href="<?php echo base_url() .$role?>/insertODC" class="btn btn-primary" role="button">Add ODC</a>
                 <p></p>
 
-
+<?php }?>
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i>List of ODC</div>
@@ -27,7 +29,9 @@
                     <th>odpKordX</th>
                     <th>odpKordY</th>
                     <th>odpSPIN</th>
+                    <?php if($roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
 				  <th>action</th>
+          <?php }?>
                 </tr>
               </thead>
               <tbody>
@@ -45,13 +49,14 @@
                     <td><?php echo $m['odpKordY']; ?></td>
                     <td><?php echo $m['odpSPIN']; ?></td>
 				  
-				  
+                    <?php if($roles == 2 or $roles == 3 or $roles == 4 or $roles == 5 ) {?>
                     <td>
                     <p><a href="<?php echo base_url().$role.'/editODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></br>
                     <a href="<?php echo base_url().$role.'/showODCKordinat/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> gMaps</a></br>
                      <a href="<?php echo base_url().$role.'/deleteODC/'.$m['xConnectODCspin'].'/'.$m['xConnectODCspout'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                      
                   </td>
+                  <?php }?>
                 </tr>
                 <?php }
               }?>
@@ -60,8 +65,11 @@
           </div>
         </div>
       </div>
+
+      <?php if($roles == 2 or $roles == 1 ) {?>
       <a href="<?php echo base_url() .$role?>/download/ODC" class="btn btn-primary" role="button">Download XLS</a>
                 <p></p>
+      <?php }?>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

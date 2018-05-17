@@ -22,8 +22,9 @@ class Auth extends CI_Controller {
 	public function loginadmin() {
 		$usernameAdmin = htmlspecialchars($this->input->post('username'));
 		$passwordAdmin = htmlspecialchars($this->input->post('password'));
-		$passenc = md5("m@120maH5An~7@mv4N" . $passwordAdmin . "5uKs3ZzZk4PepE3le@~~");
-		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passwordAdmin);
+		$passenc = hash('sha256', $passwordAdmin);
+		$isLogin = $this->Authmin_model->loginAdmin($usernameAdmin, $passenc);
+		
 		if($isLogin == true) {
 			$loginadminData = array(
 				'userID' => $isLogin[0]->userID,
@@ -41,6 +42,10 @@ class Auth extends CI_Controller {
 				} elseif($isLogin[0]->role == '5')
                 {
                     redirect(base_url('staff'));
+				}  
+				elseif($isLogin[0]->role == '6')
+                {
+                    redirect(base_url('sales'));
                 }  
 				else {
 					redirect(base_url(('Home')));
@@ -61,31 +66,6 @@ class Auth extends CI_Controller {
 
 
 
-	public function ubahpass($username) {
-		$this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');
-		$this->form_validation->set_rules('cpassword','Confirm Password','required');
-		$opass = md5("m@120maH5An~7@mv4N" . $this->input->post('opassword') . "5uKs3ZzZk4PepE3le@~~");
-		$npass = md5("m@120maH5An~7@mv4N" . $this->input->post('npassword') . "5uKs3ZzZk4PepE3le@~~");
-		$cpass = md5("m@120maH5An~7@mv4N" . $this->input->post('cpassword') . "5uKs3ZzZk4PepE3le@~~");
-		$data['password'] = $npass;
-
-		$do = $this->Authmin_model->getColomn($username);
-
-		if($do[0]->password == $opass) {
-			if($cpass == $npass) {
-				if(strlen($this->input->post('npassword')) >= 5) {
-					$update = $this->Authmin_model->updateData('username', $username, 'admin', $data);
-					$flash = $this->session->set_flashdata('success','Password berhasil diganti.');
-				} else {
-					$flash = $this->session->set_flashdata('error','Password gagal diubah, minimal 5 karakter.');
-				}
-			} else {
-				$flash = $this->session->set_flashdata('error','Cek kembali isian anda.');
-			}
-		} else {
-			$flash = $this->session->set_flashdata('error','Password salah.');
-		}
-		redirect('admin/Dashboard/myprofile', $flash);
-	}
+	
 }
 ?>

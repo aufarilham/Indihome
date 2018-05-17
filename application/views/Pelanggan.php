@@ -1,4 +1,8 @@
 <!-- Example DataTables Card-->
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
+
+   <?php if($roles == 6 ) {?>
+
 <div class="card-body">
           <div class="demo-grid" style="padding:1px">
             <form action="<?php echo base_url()?>asman/insertPelanggan" method="post"  enctype="multipart/form-data"> 
@@ -6,6 +10,7 @@
     </form>
     </div>
 </div>
+<?php }?>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -25,7 +30,9 @@
                   <th>pelangganID</th>
                     <th>nama</th>
                   <th>lokasi</th>
+                  <?php if($roles == 6 ) {?>
 				  <th>action</th>
+          <?php }?>
                 </tr>
               </thead>
               <tbody>
@@ -36,10 +43,15 @@
                   <td><?php echo $m['pelangganID']; ?></td>
                   <td><?php echo $m['nama'] ?></td>
                   <td><?php echo $m['lokasi']; ?></td>
+                  <?php $roles = $this->session->userdata('loggedin')['role']; ?>
+
+   <?php if($roles == 6 ) {?>
+
                   <td>
                     <p><a href="<?php echo base_url().$role.'/editPelanggan/'.$m['pelangganID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                      <a href="<?php echo base_url().$role.'/deletePelanggan/'.$m['pelangganID'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
                   </td>
+                  <?php }?>
                 </tr>
                 <?php }
               }?>

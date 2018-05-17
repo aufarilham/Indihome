@@ -9,7 +9,7 @@ class supervisor extends CI_Controller {
 			
 			
             $this->load->model('Authmin_model');
-            if ($this->session->userdata('loggedin')['role'] != '3') {
+            if ($this->session->userdata('loggedin')['role'] != '4') {
             	redirect(base_url('Home'));
 			}
 			
@@ -17,7 +17,7 @@ class supervisor extends CI_Controller {
         }
 
 	public function userrole(){
-		return 'supervisor';
+		return 'staffahli';
 	}
 	public function index() {
 		$data['title'] = $this->userrole();

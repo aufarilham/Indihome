@@ -1,6 +1,10 @@
 <!-- Example DataTables Card-->
+
+<?php $roles = $this->session->userdata('loggedin')['role']; ?>
+<?php if($roles == 2 ) {?>
 <a href="<?php echo base_url() .$role?>/insertEA" class="btn btn-primary" role="button">Add EA</a>
                 <p></p>
+<?php }?>
 
       <div class="card mb-3">
         <div class="card-header">
@@ -21,7 +25,9 @@
                     <th>eqpIP</th>
                   <th>eqpPORT</th>
                   <th>eqpTERM</th>
+                  <?php if($roles == 2 ) {?>
 				  <th>action</th>
+                  <?php }?>
                 </tr>
               </thead>
               <tbody>
@@ -34,8 +40,11 @@
                   <td><?php echo $m['eqpPORT']; ?></td>
                   <td><?php echo $m['eqpTERM']; ?></td>
                   <td>
-                    <p><a href="<?php echo base_url().$role.'/editEA/'.$m['xConnectCable'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                  
+                    <p><?php if($roles == 2 ) {?>
+                    <a href="<?php echo base_url().$role.'/editEA/'.$m['xConnectCable'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                      <a href="<?php echo base_url().$role.'/deleteEA/'.$m['xConnectCable'] ?>" onclick="javascript:confirmationDelete($(this));return false;"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a></p>
+                    <?php }?>
                   </td>
                 </tr>
                 <?php }
@@ -45,8 +54,11 @@
           </div>
         </div>
       </div>
+
+      <?php if($roles == 2 or $roles1 ) {?>
       <a href="<?php echo base_url() .$role?>/download/EA" class="btn btn-primary" role="button">Download XLS</a>
                 <p></p>
+      <?php }?>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

@@ -259,8 +259,7 @@ public function reportPelanggan(){
 		$this->db->where($where1, $datawhere1);
 		$this->db->where($where2, $datawhere2);
 		$query = $this->db->get();
-		var_dump($query); exit;
-		
+	
 		if ($query->num_rows() == 1) {
 			return $query->result();
 		}
@@ -268,47 +267,7 @@ public function reportPelanggan(){
 			return false;
 		}
 	}
-	public function getOrder() {
-		$this->db->select('*');
-		$this->db->from('order');
-		$this->db->order_by('tanggalkirim');
-		$query = $this->db->get();
-		if($query->num_rows() > 0) {
-			return $query->result();
-		} else {
-			return false;
-		}
-	}
-
-	function get_order_id($id){
-		$this->db->select('*');
-		$this->db->join('buktibayar', 'buktibayar.kode = order.kode_order', 'left');
-		$this->db->where('kode_order', $id);
-		$this->db->from('order');
-		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
-			return $query->result();
-		}
-		else{
-			return false;
-		}
-	}
-
-	public function getDetilOrder($id) {
-		$this->db->select('*');
-		$this->db->join('menu','menu.kode=detil_order.kodebarang');
-		$this->db->join('order', 'order.kode_order=detil_order.orderid');
-		$this->db->where('orderid', $id);
-		$this->db->from('detil_order');
-		$query = $this->db->get();
-		if ($query && $query->num_rows() > 0) {
-			return $query->result();
-		}
-		else{
-			return false;
-		}
-	}
-
+	
 	 public function insertData($namaTabel, $data) {
 		try{
 			$hasil = $this->db->insert($namaTabel, $data); 
@@ -348,29 +307,6 @@ public function reportPelanggan(){
 		$this->db->where($where2, $wheredata2);
 		$this->db->update($namaTabel, $data);
         
-	}
-
-	public function getTopMenu() {
-		$this->db->select('kodebarang, nama, sum(kuantitas)');
-		$this->db->join('menu', 'detil_order.kodebarang=menu.kode');
-		$this->db->from('detil_order');
-		$this->db->group_by('kodebarang');
-		$this->db->order_by('sum(kuantitas)', 'DESC');
-		$this->db->limit(5);
-		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
-			return $query->result_array();
-		}
-		else{
-			return false;
-		}
-	}
-
-	public function getTotalOrderMenu() {
-		$this->db->select_sum('kuantitas');
-		$this->db->from('detil_order');
-		$query = $this->db->get();
-		return $query->row()->kuantitas;
 	}
 
 	public function now() {

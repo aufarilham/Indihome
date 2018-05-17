@@ -27,7 +27,7 @@
                       
                     
                           <div class="row form-group">
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="search" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="search" placeholder="Masukkan ID Pelanggan" class="form-control"></div>
 
 														<button type="submit" name="submit" class="btn btn-primary">
                           <i class="fa fa-dot-circle-o"></i> Add

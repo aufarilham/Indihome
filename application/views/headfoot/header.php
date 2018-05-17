@@ -92,7 +92,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="<?php echo base_url()?><?php echo $role; ?>/Dashboard">Dashboard</a>
+          <a href="<?php echo base_url()?><?php echo $role; ?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item active"><?php echo $title; ?></li>
       </ol>
