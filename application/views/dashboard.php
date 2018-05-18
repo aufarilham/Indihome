@@ -130,7 +130,7 @@ foreach($oa as $result){
               } ?> ODC Terpasang
       </div>
     </div>
-    <a class="card-footer text-white clearfix small z-1" href="<?php if($roles != 6 ) {?><?php base_url()?><?php echo $role .'/manageDC'?><?php }?>">
+    <a class="card-footer text-white clearfix small z-1" href="<?php if($roles != 6 ) {?><?php base_url()?><?php echo $role .'/manageODC'?><?php }?>">
       <span class="float-left">View Details</span>
       <span class="float-right">
         <i class="fa fa-angle-right"></i>

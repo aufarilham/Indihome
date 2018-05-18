@@ -24,7 +24,7 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectCable" placeholder="" class="form-control"> <small class="form-text text-muted">ex. MRY-PC-0036</small></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpIP</label></div>

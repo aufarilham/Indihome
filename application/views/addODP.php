@@ -86,7 +86,7 @@
                           
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">operationDate</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="Date" id="hf-email" name="operationDatee" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8"><input  type="Date" id="hf-email" name="operationDate" placeholder="" class="form-control"></div>
                           </div>
                           
                         

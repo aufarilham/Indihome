@@ -238,6 +238,7 @@ class asman extends CI_Controller {
         );
 			
 			$insert = $this->Authmin_model->InsertData('odp', $datainsert);
+			
 			if($insert) {
 				$this->session->set_flashdata('success', ' '. $odpIDPORT . " berhasil ditambahkan ke ODP.");
 				redirect(base_url(''. $this->userrole() .'/manageODP'));

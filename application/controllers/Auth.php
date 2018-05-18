@@ -39,22 +39,31 @@ class Auth extends CI_Controller {
 			if($isLogin[0]->role == '2')
                 {
                     redirect(base_url('asman'));
-				} elseif($isLogin[0]->role == '5')
+				} elseif($isLogin[0]->role == '1')
+                {
+                    redirect(base_url('manager'));
+				}  
+				elseif($isLogin[0]->role == '3')
+                {
+                    redirect(base_url('supervisor'));
+                }  elseif($isLogin[0]->role == '4')
+                {
+                    redirect(base_url('staffahli'));
+				}  
+				elseif($isLogin[0]->role == '5')
                 {
                     redirect(base_url('staff'));
-				}  
-				elseif($isLogin[0]->role == '6')
+                }  elseif($isLogin[0]->role == '6')
                 {
                     redirect(base_url('sales'));
                 }  
-				else {
-					redirect(base_url(('Home')));
-            }
+				
+					
 			
 			
 		} else {
-			$this->session->set_flashdata('error','Pelanggan gagal ditambahkan, cek kode makanan.');
-			redirect(base_url(('Home')));
+			redirect(base_url('home'));
+            
 		}
 	}
 

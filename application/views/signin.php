@@ -40,7 +40,7 @@
 
 	</head>
 	<body class="style-3 " style="background: #ffffff url(assets/images/hitam.jpg) repeat;">
-
+	
 		<div class="container">
 			<div class="row">
 					<!-- Start Sign In Form -->
@@ -65,7 +65,10 @@
 							<label for="remember"><input type="checkbox" id="remember"> Remember Me</label>
 						</div>
 						<div class="form-group">
-							<p>Not registered? <a href="forgot3.html"> Forgot Password?</a></p>
+							<p><?php if(isset($alert)) echo "<div style ='text-align: center;'class='alert alert-danger alert-dismissable'>
+                            <button style ='text-align: center; type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                            <h4>Username atau Password salah</h4>
+                            </div>";?></p>
 						</div>
 						<div class="form-group">
 							<input type="submit" value="Sign In" class="btn btn-primary">

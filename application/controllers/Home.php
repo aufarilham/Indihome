@@ -10,10 +10,26 @@ class Home extends CI_Controller {
 		if($this->session->userdata('loggedin')){
             $data = $this->session->userdata('loggedin');
             
-                if($data['role'] == '2')
+                if($data['role'] == '1')
+                {
+                    redirect(base_url('manager'));
+				} elseif($data['role'] == '2')
                 {
                     redirect(base_url('asman'));
-                }
+				} elseif($data['role'] == '3')
+                {
+                    redirect(base_url('supervisor'));
+				} elseif($data['role'] == '4')
+                {
+                    redirect(base_url('staffahli'));
+				} elseif($data['role'] == '5')
+                {
+                    redirect(base_url('staff'));
+				} elseif($data['role'] == '6')
+                {
+                    redirect(base_url('sales'));
+				} 
+				
         
 	}
     }
