@@ -139,4 +139,3 @@ class Home_Dashboard extends CI_Controller {
         }
     }
 }
-}

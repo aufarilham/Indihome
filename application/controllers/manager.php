@@ -52,8 +52,14 @@ class manager extends CI_Controller {
 		$this->load->view('headfoot/footer');
 	}
     
+        public function get_message()
+        {
+            $this->load->model('Result');
+            $message = $this->Result->get_result();
+            echo $message;
+        }
 
-	public function profile() {
+                public function profile() {
 		$data['title'] = 'My Profile';
 		$data['role'] = $this->userrole();
 		$this->load->view('headfoot/sider',$data);
