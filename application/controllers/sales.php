@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class asman extends CI_Controller {
+class sales extends CI_Controller {
 
 	
 	public function __construct() {

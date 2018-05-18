@@ -24,36 +24,44 @@
                     
                          <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $oa[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required readonly value="<?php echo $oa[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">ospTerm</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $oa[0]->ospTerm ?>" id="hf-email" name="ospTerm" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required readonly value="<?php echo $oa[0]->ospTerm ?>" id="hf-email" name="ospTerm" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">feederCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required value="<?php echo $oa[0]->feederCable ?>" id="hf-email" name="feederCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required value="<?php echo $oa[0]->feederCable ?>" id="hf-email" name="feederCable" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">primaryFiberCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->primaryFiberCable ?>" id="hf-email" name="primaryFiberCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $oa[0]->primaryFiberCable ?>" id="hf-email" name="primaryFiberCable" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">fileABDOSP</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->fileABDOSP ?>" id="hf-email" name="fileABDOSP" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $oa[0]->fileABDOSP ?>" id="hf-email" name="fileABDOSP" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odcPortIn</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $oa[0]->odcPORTIN ?>"  id="hf-email" name="odcPortIn" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $oa[0]->odcPORTIN ?>"  id="hf-email" name="odcPortIn" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">lossCore</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" required value="<?php echo $oa[0]->lossCore ?>"  name="lossCore" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" required value="<?php echo $oa[0]->lossCore ?>"  name="lossCore" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectODCspin</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" required value="<?php echo $oa[0]->xConnectODCspin ?>" name="xConnectODCspin" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" required value="<?php echo $oa[0]->xConnectODCspin ?>" name="xConnectODCspin" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                         

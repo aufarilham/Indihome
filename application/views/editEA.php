@@ -25,19 +25,23 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $ea[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required readonly value="<?php echo $ea[0]->xConnectCable ?>" id="hf-email" name="xConnectCable" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpIP</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required value="<?php echo $ea[0]->eqpIP ?>" id="hf-email" name="eqpIP" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required value="<?php echo $ea[0]->eqpIP ?>" id="hf-email" name="eqpIP" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpPORT</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $ea[0]->eqpPORT ?>" id="hf-email" name="eqpPORT" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $ea[0]->eqpPORT ?>" id="hf-email" name="eqpPORT" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpTERM</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $ea[0]->eqpTERM ?>" id="hf-email" name="eqpTERM" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $ea[0]->eqpTERM ?>" id="hf-email" name="eqpTERM" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                         

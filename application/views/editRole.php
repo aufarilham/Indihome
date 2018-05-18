@@ -25,11 +25,13 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">id</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" required readonly value="<?php echo $roles[0]->id ?>" id="hf-email" name="id" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" required readonly value="<?php echo $roles[0]->id ?>" id="hf-email" name="id" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">role name</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" required value="<?php echo $roles[0]->role_name ?>" id="hf-email" name="role_name" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" required value="<?php echo $roles[0]->role_name ?>" id="hf-email" name="role_name" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                         

@@ -24,24 +24,28 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">userID</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="userID" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="userID" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">username</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="username" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="username" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">email</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="email" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="email" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">password</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="password" id="hf-email" name="password" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="password" id="hf-email" name="password" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="select" class=" form-control-label">role</label></div>
                             <div class="col-12 col-md-8">
-                              <select name="role" id="select" class="form-control">
+                              <select name="role" id="select" class="form-control" required="required">
                               <option value=1 >Manager</option>
                               <option value=2 >Asisten Manager</option>
                               <option value=3 >Supervisor</option>

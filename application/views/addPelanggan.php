@@ -24,15 +24,18 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">pelangganID</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="pelangganID" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="pelangganID" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">nama</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="nama" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="nama" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">lokasi</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="lokasi" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="lokasi" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                         

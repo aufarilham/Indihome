@@ -5,7 +5,7 @@
 
 <div class="card-body">
           <div class="demo-grid" style="padding:1px">
-            <form action="<?php echo base_url()?>asman/insertPelanggan" method="post"  enctype="multipart/form-data"> 
+            <form action="<?php echo base_url().$role?>/insertPelanggan?>" method="post"  enctype="multipart/form-data"> 
                 <td style="padding: 5px" colspan="1"> <input class="btn btn-primary" type="submit" name="submit" value="Add Pelanggan" /></td>
     </form>
     </div>

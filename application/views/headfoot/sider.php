@@ -17,6 +17,8 @@
   <link href="<?php echo base_url()?>assets/vendor/datatables/dataTables.bootstrap4.css?version=<?php echo filemtime('dataTables.bootstrap4.css'); ?>" rel="stylesheet">
   <!-- Custom styles for this template-->
   
+  <link href="<?php echo base_url()?>assets/images/Indihome_Icon.png" rel="shortcut icon">
+
   
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/DataTables/datatables.min.css"/>
  <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-3.3.1.js"></script>

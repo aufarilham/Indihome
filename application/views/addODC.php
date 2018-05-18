@@ -37,35 +37,43 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectODCspout</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectODCspout" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="xConnectODCspout" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odcPORTOUT</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="odcPORTOUT" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="odcPORTOUT" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">distributionCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="distributionCable" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="distributionCable" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">fileABDODC</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="fileABDODC" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="fileABDODC" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpAddress</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="odpAddress" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="odpAddress" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpKordX</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="x" name="odpKordX" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="x" name="odpKordX" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpKordY</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="y" name="odpKordY" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="y" name="odpKordY" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpSPIN</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="odpSPIN" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="odpSPIN" placeholder="" class="form-control" required="required"></div>
                           </div>
                           
                         

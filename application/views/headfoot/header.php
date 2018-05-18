@@ -1,3 +1,6 @@
+<link href="<?php echo base_url()?>assets/images/Indihome_Icon.png" rel="shortcut icon">
+
+
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
          <!-- <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

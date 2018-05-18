@@ -1,3 +1,4 @@
+<link href="<?php echo base_url()?>assets/images/Indihome_Icon.png" rel="shortcut icon">
 
      <!-- Icon Cards-->
        <div class="row">

@@ -1,3 +1,5 @@
+<link href="<?php echo base_url()?>assets/images/Indihome_Icon.png" rel="shortcut icon">
+
 <div class="col-sm-12">
 <div class="col-sm-3"> </div>
 <center>
@@ -24,19 +26,23 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">xConnectCable</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="xConnectCable" placeholder="" class="form-control"> <small class="form-text text-muted">ex. MRY-PC-0036</small></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="xConnectCable" placeholder="" class="form-control" required="required"> <small class="form-text text-muted">ex. MRY-PC-0036</small></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpIP</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="eqpIP" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="eqpIP" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpPORT</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="eqpPORT" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="eqpPORT" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">eqpTERM</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="eqpTERM" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="eqpTERM" placeholder="" class="form-control" required="required" ></div>
                           </div>
                           
                         

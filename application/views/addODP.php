@@ -37,13 +37,14 @@
                     
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpIDPORT</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="odpIDPORT" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="odpIDPORT" placeholder="" class="form-control" required="required"></div>
                           </div>
 
                           <div class="row form-group">
-                            <div class="col col-md-4"><label for="select" class=" form-control-label">kondisi</label></div>
+                            <div class="col col-md-4"><label for="select" class=" form-control-label" >kondisi</label></div>
                             <div class="col-12 col-md-8">
-                              <select name="kondisi" id="select" class="form-control">
+                              <select name="kondisi" id="select" class="form-control" required="required">
                               <option value="ISI">ISI</option>
                               <option value="IDLE">IDLE</option>
                               <option value="RUSAK">RUSAK</option>
@@ -52,29 +53,34 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">odpName</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input type="text" id="hf-email" name="odpName" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input type="text" id="hf-email" name="odpName" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">noModem</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="noModem" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="noModem" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">noInternet</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="noInternet" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="noInternet" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">noTelepon</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="noTelepon" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="noTelepon" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="hf-email" class=" form-control-label">noTelevisi</label></div>
-                            <div style="text-align:left " class="col-12 col-md-8"><input  type="text" id="hf-email" name="noTelevisi" placeholder="" class="form-control"></div>
+                            <div style="text-align:left " class="col-12 col-md-8">
+                              <input  type="text" id="hf-email" name="noTelevisi" placeholder="" class="form-control" required="required"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-4"><label for="select" class=" form-control-label">pelangganID</label></div>
                             <div class="col-12 col-md-8">
 
-                              <select name="pelangganID" id="select" class="form-control">
+                              <select name="pelangganID" id="select" class="form-control" required="required">
                               <?php if(!empty($dataPelanggan)) {foreach ($dataPelanggan as $m) { ?>
                               <option value="<?php echo $m['pelangganID']; ?>"><?php echo $m['pelangganID']; ?></option>
                               <?php }
